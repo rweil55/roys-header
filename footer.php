@@ -226,7 +226,7 @@ function rrwTrail_footer_theyworking(
     		maintain the network of multiuse trails in western Pennsylvania and
     		surrounding areas.</p>
     		<p class="footer-adm-links" align="center">
-    		<a href="/aboutus/">Contact information</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    		<a href="/webmaster-feedback/">Contact information</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     		<a href="/press/">Press room</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     		<a href="/privacy/">Privacy policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     		<a href="/sitemap/">Site map</a>
