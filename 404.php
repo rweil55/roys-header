@@ -31,6 +31,11 @@ if ("/" == $direname) {
 if ($debug404) print "directory - $direname, file - $filename, ABSPATH " . ABSPATH . $eol;
 $pageSlug = str_replace("/", "", $filename);
 if ($debug404) print "page slug is $pageSlug $eol";
+if (0 == strncmp($pageSlug, "trailid=", 8)) {
+    header("Location: $direname/?$pageSlug");
+    if ($debug404) print "trying   $direname/?$pageSlug $eol";
+    return true;
+}
 $sqlPage = "SELECT * FROM " . $table_prefix . "posts where post_type = 'page' and post_status='publish' and post_name = '$pageSlug' ";
 $result = $wpdb->get_results($sqlPage);
 if ($debug404) print "sql is $sqlPage $eol";
@@ -38,6 +43,7 @@ if ($wpdb->num_rows > 0) {
     $newRequest = $pageSlug;
     if ($debug404) print "page slug $filename exists $eol";
     header("Location: $newRequest");
+    return true;
 } else {
     if ($debug404) print "page slug $filename does not exist $eol";
 }
@@ -66,7 +72,7 @@ foreach ($possibleExt as $newExt) {
         $debug404 = true;
         if ($debug404) {
             print "<strong>special code</strong> for edit.shaw-weil.com : host is $host ,path is $path ,query is $query ,url is $url $eol";
-            print "filename is $filename ,direname is $direname ,page slug is $pageSlug ,sql is $sqlPage ,sql is $sqlTrail $eol";
+            print "filename is $filename ,direname is $direname ,page slug is $pageSlug ,sql is $sqlPage $eol";
         }
         // see if it is just a trail name as the page slug
         //      if so redirect to the page with ?trailId=page slug
@@ -81,7 +87,7 @@ foreach ($possibleExt as $newExt) {
         } // end if ($wpdb->num_rows > 0)
         // see if is just a fix task name as the page slug
         //      if so redirect to the page with ?task=page slug
-        if ($sebug404) print "direname is $direname try a fix task $eol";
+        if ($debug404) print "direname is $direname try a fix task $eol";
         if ("/fix" == substr($direname, 0, 4) && empty($query)) {
             $newRequest = "$direname/?task=$pageSlug";
             if ($debug404) print "lets try $newRequest  $eol";
