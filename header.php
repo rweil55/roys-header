@@ -92,13 +92,13 @@ div.eriemenu {
         case "picture":
         case "picturedev":
             print "
-<script src='/wp-content/plugins/roys-picture-processng/pictures.js'></script>
+<script src='/wp-content/plugins/roys-picture-processing/pictures.js'></script>
 <script src='https://pictures.shaw-weil.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0'
     id='jquery-core-js'></script>
 <script src='https://pictures.shaw-weil.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2'
     id='jquery-migrate-js'></script>
 <link rel='stylesheet'
-    href='https://pictures.shaw-weil.com/wp-content/plugins/roys-picture-processng/pictures.css' media='all'
+    href='https://pictures.shaw-weil.com/wp-content/plugins/roys-picture-processing/pictures.css' media='all'
     id='picture.csss' ></link>
 <style >
 .nav_rrw_buttons {
@@ -139,6 +139,9 @@ div.eriemenu {
         case "linkup":
         case "tailonly":
         case "edit":
+            break;
+        case "validate":
+            $_GET['nohead'] = "true"; // force no header
             break;
         default:
             print "<p>E#1302 Unkown switchName of '$switchName' in header.php</p> ";
@@ -186,9 +189,11 @@ div.eriemenu {
     print "'> </a>\n";
     $image = get_header_image();
     $homeName = esc_attr(get_bloginfo('name', 'display'));
-    if (array_key_exists("nohead", $_GET)) $noheader = true;
-    else $noheader = false;
-    if ($noheader)
+    if (array_key_exists("nohead", $_GET))
+        $noHeader = true;
+    else
+        $noHeader = false;
+    if ($noHeader)
         return;
     $mobile = false;
     if (array_key_exists('HTTP_USER_AGENT', $_SERVER)) {
@@ -219,7 +224,7 @@ div.eriemenu {
 </div>
             <!-- end /div id='rrw_header_menu_block_1' --> ";
                 break;
-                /*  // picture has it own special header, does not use this code
+            /*  // picture has it own special header, does not use this code
             case "picture":
             case "picturedev":
                 if ($debugSwitch) print "working on picture header $eol";
@@ -229,7 +234,7 @@ div.eriemenu {
                     $dev = "";
                 $pictureSearchBox =
                     "/home/pillowan/www-shaw-weil-pictures$dev/wp-content/plugins" .
-                    "/roys-picture-processng/searchBox.php";
+                    "/roys-picture-processing/searchBox.php";
                 if (!file_exists($pictureSearchBox)) {
                     print "E#1300 looking for the file $pictureSearchBox,
                         need to load the pictures plugin
@@ -378,6 +383,8 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
   </div>
 ";
                 break;
+            case "validate":
+                break;
             default:
                 print "<p>E#1304 Unknown switchName of '$switchName.jpg' in header.php</p> ";
         } // end of switch";
@@ -432,6 +439,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         case "tailonly":
         case "theyworking":
         case "edit":
+        case "validate":
             // menu is displayed on top of the header image
             // or not displayed at all
             print " <!-- No menu displayed -->";

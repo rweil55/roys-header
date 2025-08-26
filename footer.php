@@ -65,6 +65,7 @@ switch ($switchName) {
             $rrw_trail_menu_footer_text_color
         );
     case "clean":
+    case "validate":
         print "<!-- no footer displayed -->";
         break;
     case "theyworking":

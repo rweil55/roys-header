@@ -7,7 +7,7 @@ require_once "freewheelingeasy-wpdpExtra.php";
 require_once "rrw_util_inc.php";
 require_once "theme_update_check.php";
 // the following is called directly durning the processing of // https::pictures...
-// roys-picture-processng/searchBox.php
+// roys-picture-processing/searchBox.php
 // cause downstream tasks to use this trailid i.e rrwParma::String("trailid") pickups the _cookie
 if (array_key_exists("trailid", $_GET)) {
     $trailid = $_GET["trailid"];
@@ -286,24 +286,26 @@ function rrw_trail_SetSwitshName()
         $switchName = "dino1";
     elseif (strpos($siteUrl, "eriepittsburgh") !== false)
         $switchName = "eriepittsburgh";
-    elseif (strpos($siteUrl, 'they-working') !== false)
-        $switchName = "theyworking";
-    elseif (strpos($siteUrl, "retrospective") !== false)
-        $switchName = "clean";
     elseif (strpos($siteUrl, "devpicture") !== false)
         $switchName = "picturedev";
-    elseif (strpos($siteUrl, "picture") !== false)
-        $switchName = "picture";
-    elseif (strpos($siteUrl, "tommarellogc") !== false)
-        $switchName = "tommarellogc";
     elseif (strpos($siteUrl, "edit.shaw-weil") !== false)
         $switchName = "edit";
+    elseif (strpos($siteUrl, "picture") !== false)
+        $switchName = "picture";
+    elseif (strpos($siteUrl, "retrospective") !== false)
+        $switchName = "clean";
+    elseif (strpos($siteUrl, 'they-working') !== false)
+        $switchName = "theyworking";
+    elseif (strpos($siteUrl, "tommarellogc") !== false)
+        $switchName = "tommarellogc";
+    elseif (strpos($siteUrl, "validate") !== false)
+        $switchName = "validate";
     else
         $switchName = "normal";
     // allows testing of switchname in non-production
-    $switchParameter = rrwUtil::fetchparameterString("switch");
-    if (!empty($switchParameter))
-        $switchName = $switchParameter;
+    $switch_parameter = rrwUtil::fetchparameterString("switch");
+    if (!empty($switch_parameter))
+        $switchName = $switch_parameter;
     return $switchName;
 }
 /*
