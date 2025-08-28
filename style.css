@@ -1,377 +1,379 @@
-/*
-Theme Name:     Roys Header
-Theme URI:      https://plugins.royweil.com/roys-header
-github:			https://github.com/rweil55/toys-pages-theme
-Description:    Provides: a three section header -logo, title, picture-, || a free-wheeling easy footer, || a Google Translate footer,  || Mess with WP File Manger to allow only uploads to /upload || increase max file size to 64MB || 404 message  || menu/footer colors || multiple pagee templates
-Name:	Roys Header
-Author:         Roy Weil
-Author URI:     https://plugins.royweil.com/
-Donate URI:		https://plugins.royweil.com/donate
-Plugin URI: 	https://plugins.royweil.com/roys-header
-License:           GPLv3+
-License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
-Template:       twentythirteen
-Tested up to:   6.3.1
-Version: 1.3.48
-*/
-/*  Facebook Icons do not appear where I expect them when using a table element to display
-socialtech wrote:
-We are using absolute display to position the icons.
-Please add:
-.sfsi_widget .sfsi_wDiv{ position:initial!important; }
-in your theme's CSS section to make it behave as required.
-Post Link: https://wordpress.org/support/topic/icons-do-not-appear-where-i-expect-them-when-using-a-table-element-to-display/#post-11579050
-*/
-.sfsi_widget .sfsi_wDiv {
-    position: initial !important;
-    min-height: 14px;
-    text-align: right !important;
-}
-
-div#sfsi_holder {
-    height: 0px !important;
-}
-
-/* end of styles dealing with facebook, etc icons
-styles hacing to do with the Eriepittsburgh header swish  are loced in the header.php routine
-*/
-body {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
-.entry-title {
-    font-weight: bold;
-    font-size: 24px;
-    /*	margin-left: 10px; */
-}
-
-.entry-header,
-.entry-content,
-.entry-summary,
-.entry-meta {
-    margin-bottom: 0px;
-    width: auto;
-    max-width: none;
-}
-
-.entry-content {
-    /*	float:left;  */
-    margin-left: 10px;
-    width: auto;
-}
-
-.entry-content a:link {
-    color: #0000FF;
-}
-
-.entry-content a:visited {
-    color: #0000FF;
-}
-
-.entry-content a:hover {
-    text-decoration: underline;
-    color: #EA9629;
-}
-
-a.external {
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%3E%3Cg%20transform%3D%22translate%28-826.429%20-698.791%29%22%3E%3Crect%20width%3D%225.982%22%20height%3D%225.982%22%20x%3D%22826.929%22%20y%3D%22702.309%22%20fill%3D%22%23fff%22%20stroke%3D%22%2306c%22%2F%3E%3Cg%3E%3Cpath%20d%3D%22M831.194%20698.791h5.234v5.391l-1.571%201.545-1.31-1.31-2.725%202.725-2.689-2.689%202.808-2.808-1.311-1.311z%22%20fill%3D%22%2306f%22%2F%3E%3Cpath%20d%3D%22M835.424%20699.795l.022%204.885-1.817-1.817-2.881%202.881-1.228-1.228%202.881-2.881-1.851-1.851z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-    padding-right: 13px;
-}
-
-a.redirect {
-    text-decoration-color: pink;
-    font-style: italic;
-}
-
-.entry-content img.alignleft,
-.entry-content .wp-caption.alignleft {
-    margin-left: 0px;
-}
-
-.entry-content h1 {
-    display: inline;
-    font-size: 16px;
-}
-
-.entry-content h2 {
-    display: inline;
-    font-size: 14px;
-}
-
-.entry-content h3 {
-    display: inline;
-    font-size: 12px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    clear: both;
-    font-family: Aerial, sans-serif;
-    font-weight: bold;
-    line-height: 1.3;
-}
-
-.site-title {
-    font-size: 24px;
-}
-
-p {
-    margin-bottom: 12px;
-}
-
-table {
-    line-height: 1;
-    /* over rides the table 2.0 */
-}
-
-td,
-th {
-    vertical-align: top;
-    line-height: 1;
-    /* over rides the table 2.0 */
-    border: 0;
-    padding: 0;
-    height: 20px;
-}
-
-caption {
-    vertical-align: top;
-    line-height: 1;
-    /* over rides the table 2.0 */
-    border: 0;
-    padding: 0;
-    height: 20px;
-}
-
-.site {
-    min-width: 300px
-}
-
-.site-header .home-link {
-    min-height: 130px;
-}
-
-.site-title {
-    color: #80293D;
-    font-family: Aerial, sans-serif;
-}
-
-.site-info {
-    padding: 0;
-    max-width: none;
-}
-
-.site-paragraph-heading {
-    font-weight: bold;
-    font-size: larger;
-}
-
-.nav-menu li a {
-    padding: 5px 10px;
-}
-
-.navigation:after {
-    display: none;
-}
-
-input[type="search"] {
-    width: 270px;
-}
-
-.search-form {
-    width: 270px;
-}
-
-article {
-    display: inline;
-}
-
-.attachment .entry-meta,
-.attachment .entry-description,
-.paging-navigation .nav-links,
-.author-info,
-.page-content .comments-title,
-.comment-list,
-.comment-navigation,
-.comment-reply-title,
-.must-log-in,
-.comment-respond .comment-form,
-.comment-respond iframe,
-.sidebar .comments-title,
-.sidebar .comment-list,
-.sidebar .must-log-in,
-.sidebar .comment-reply-title,
-.sidebar .comment-navigation,
-.sidebar .comment-respond .comment-form .comment-navigation .site-main .mu_register,
-.site-footer,
-.site-footer a {
-    width: auto;
-}
-
-.form-allowed-tags,
-.form-allowed-tags code {
-    color: #686108;
-}
-
-@media all {
-
-    .sidebar .entry-header,
-    .sidebar .entry-content,
-    .sidebar .entry-summary,
-    .sidebar .entry-meta,
-    .sidebar .comment-list,
-    .sidebar .comment-reply-title,
-    .sidebar .comment-navigation,
-    .sidebar .comment-respond .comment-form,
-    .sidebar .featured-gallery,
-    .sidebar .post-navigation .nav-links,
-    .author.sidebar .author-info .sidebar .site-info,
-    .search.sidebar .page-content,
-    .blog.sidebar .page-content,
-    .attachment .entry-header,
-    .sidebar .comments-title {
-        width: auto;
-    }
-}
-
-/*  ---------------------------------- cause maasthead and classed stuff to disapper on small screens */
-@media (max-width: 400px),
-(max-height:400px) {
-
-    #mastheadPhotos,
-    .hideOnSmallScreen {
-        display: none;
-    }
-}
-
-.trailsiteheader {
-    float: left;
-    padding-left: 10px;
-    text-align: left;
-    background-color: red
-        /* #e8e5ce;  */
-}
-
-/* Google translate styles  */
-#goog-gt-tt {
-    display: none !important;
-}
-
-.goog-te-banner-frame {
-    display: none !important;
-}
-
-.goog-te-menu-value:hover {
-    text-decoration: none !important;
-}
-
-body {
-    top: 0 !important;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-#google_translate_element2 {
-    display: none !important;
-}
-
-/* Tooltip container */
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-    /* If you want dots under the hoverable text */
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 700px;
-    background-color: black;
-    color: #fff;
-    text-align: left;
-    padding: 5px 0;
-    border-radius: 6px;
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    top: 100%;
-    z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    -webkit-transition-delay: 750ms;
-    /* Safari */
-    transition-delay: 750ms;
-}
-
-.rrw_trail_copyrightOnSides {
-    width: 15px;
-}
-
-.rrw_map_link_list {
-    vertical-align: top;
-    font-size: larger;
-}
-
-@media (max-width: 643px) {
-    .rrw_trail_copyrightOnSides {
-        display: none;
-    }
-
-    body .entry-title .entry-header,
-    .entry-content,
-    .entry-summary,
-    .entry-meta {
-        margin: 1px;
-        padding-left: 1px;
-        padding-right: 1px;
-    }
-
-    h2 {
-        margin: 1px;
-        padding-left: 1px;
-        padding-right: 1px;
-    }
-}
-
-@media (max-width: 643px) {
-
-    #content .entry-header,
-    #content .entry-content,
-    #content .entry-summary,
-    #content footer.entry-meta,
-    #content .featured-gallery,
-    .search.sidebar .page-content,
-    .blog.sidebar .page-content,
-    .sidebar .post-navigation .nav-links,
-    .paging-navigation .nav-links,
-    #content .author-info,
-    .comments-area .comments-title,
-    .comments-area .comment-list,
-    .comments-area .comment-navigation,
-    .comment-respond,
-    .sidebar .site-info,
-    .sidebar .paging-navigation .nav-links {
-        margin: 1px;
-        padding-left: 1px;
-        padding-right: 1px;
-    }
-}
-
-.comments-area {
-    display: none;
+/*
+Theme Name:     Roys Header
+Theme URI:      https://plugins.royweil.com/roys-header
+github:			https://github.com/rweil55/toys-pages-theme
+Description:    Provides: a three section header -logo, title, picture-, || a free-wheeling easy footer, || a Google Translate footer,  || Mess with WP File Manger to allow only uploads to /upload || increase max file size to 64MB || 404 message  || menu/footer colors || multiple pagee templates
+Name:	Roys Header
+Author:         Roy Weil
+Author URI:     https://plugins.royweil.com/
+Donate URI:		https://plugins.royweil.com/donate
+Plugin URI: 	https://plugins.royweil.com/roys-header
+License:           GPLv3+
+License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
+Template:       twentythirteen
+Tested up to:   6.3.1
+Version: 1.3.51
+Requires PHP: 7.3
+Requires at least: 6.5
+*/
+/*  Facebook Icons do not appear where I expect them when using a table element to display
+socialtech wrote:
+We are using absolute display to position the icons.
+Please add:
+.sfsi_widget .sfsi_wDiv{ position:initial!important; }
+in your theme's CSS section to make it behave as required.
+Post Link: https://wordpress.org/support/topic/icons-do-not-appear-where-i-expect-them-when-using-a-table-element-to-display/#post-11579050
+*/
+.sfsi_widget .sfsi_wDiv {
+    position: initial !important;
+    min-height: 14px;
+    text-align: right !important;
+}
+
+div#sfsi_holder {
+    height: 0px !important;
+}
+
+/* end of styles dealing with facebook, etc icons
+styles hacing to do with the Eriepittsburgh header swish  are loced in the header.php routine
+*/
+body {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.entry-title {
+    font-weight: bold;
+    font-size: 24px;
+    /*	margin-left: 10px; */
+}
+
+.entry-header,
+.entry-content,
+.entry-summary,
+.entry-meta {
+    margin-bottom: 0px;
+    width: auto;
+    max-width: none;
+}
+
+.entry-content {
+    /*	float:left;  */
+    margin-left: 10px;
+    width: auto;
+}
+
+.entry-content a:link {
+    color: #0000FF;
+}
+
+.entry-content a:visited {
+    color: #0000FF;
+}
+
+.entry-content a:hover {
+    text-decoration: underline;
+    color: #EA9629;
+}
+
+a.external {
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%3E%3Cg%20transform%3D%22translate%28-826.429%20-698.791%29%22%3E%3Crect%20width%3D%225.982%22%20height%3D%225.982%22%20x%3D%22826.929%22%20y%3D%22702.309%22%20fill%3D%22%23fff%22%20stroke%3D%22%2306c%22%2F%3E%3Cg%3E%3Cpath%20d%3D%22M831.194%20698.791h5.234v5.391l-1.571%201.545-1.31-1.31-2.725%202.725-2.689-2.689%202.808-2.808-1.311-1.311z%22%20fill%3D%22%2306f%22%2F%3E%3Cpath%20d%3D%22M835.424%20699.795l.022%204.885-1.817-1.817-2.881%202.881-1.228-1.228%202.881-2.881-1.851-1.851z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    padding-right: 13px;
+}
+
+a.redirect {
+    text-decoration-color: pink;
+    font-style: italic;
+}
+
+.entry-content img.alignleft,
+.entry-content .wp-caption.alignleft {
+    margin-left: 0px;
+}
+
+.entry-content h1 {
+    display: inline;
+    font-size: 16px;
+}
+
+.entry-content h2 {
+    display: inline;
+    font-size: 14px;
+}
+
+.entry-content h3 {
+    display: inline;
+    font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    clear: both;
+    font-family: Aerial, sans-serif;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.site-title {
+    font-size: 24px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+table {
+    line-height: 1;
+    /* over rides the table 2.0 */
+}
+
+td,
+th {
+    vertical-align: top;
+    line-height: 1;
+    /* over rides the table 2.0 */
+    border: 0;
+    padding: 0;
+    height: 20px;
+}
+
+caption {
+    vertical-align: top;
+    line-height: 1;
+    /* over rides the table 2.0 */
+    border: 0;
+    padding: 0;
+    height: 20px;
+}
+
+.site {
+    min-width: 300px
+}
+
+.site-header .home-link {
+    min-height: 130px;
+}
+
+.site-title {
+    color: #80293D;
+    font-family: Aerial, sans-serif;
+}
+
+.site-info {
+    padding: 0;
+    max-width: none;
+}
+
+.site-paragraph-heading {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.nav-menu li a {
+    padding: 5px 10px;
+}
+
+.navigation:after {
+    display: none;
+}
+
+input[type="search"] {
+    width: 270px;
+}
+
+.search-form {
+    width: 270px;
+}
+
+article {
+    display: inline;
+}
+
+.attachment .entry-meta,
+.attachment .entry-description,
+.paging-navigation .nav-links,
+.author-info,
+.page-content .comments-title,
+.comment-list,
+.comment-navigation,
+.comment-reply-title,
+.must-log-in,
+.comment-respond .comment-form,
+.comment-respond iframe,
+.sidebar .comments-title,
+.sidebar .comment-list,
+.sidebar .must-log-in,
+.sidebar .comment-reply-title,
+.sidebar .comment-navigation,
+.sidebar .comment-respond .comment-form .comment-navigation .site-main .mu_register,
+.site-footer,
+.site-footer a {
+    width: auto;
+}
+
+.form-allowed-tags,
+.form-allowed-tags code {
+    color: #686108;
+}
+
+@media all {
+
+    .sidebar .entry-header,
+    .sidebar .entry-content,
+    .sidebar .entry-summary,
+    .sidebar .entry-meta,
+    .sidebar .comment-list,
+    .sidebar .comment-reply-title,
+    .sidebar .comment-navigation,
+    .sidebar .comment-respond .comment-form,
+    .sidebar .featured-gallery,
+    .sidebar .post-navigation .nav-links,
+    .author.sidebar .author-info .sidebar .site-info,
+    .search.sidebar .page-content,
+    .blog.sidebar .page-content,
+    .attachment .entry-header,
+    .sidebar .comments-title {
+        width: auto;
+    }
+}
+
+/*  ---------------------------------- cause maasthead and classed stuff to disapper on small screens */
+@media (max-width: 400px),
+(max-height:400px) {
+
+    #mastheadPhotos,
+    .hideOnSmallScreen {
+        display: none;
+    }
+}
+
+.trailsiteheader {
+    float: left;
+    padding-left: 10px;
+    text-align: left;
+    background-color: red
+        /* #e8e5ce;  */
+}
+
+/* Google translate styles  */
+#goog-gt-tt {
+    display: none !important;
+}
+
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.goog-te-menu-value:hover {
+    text-decoration: none !important;
+}
+
+body {
+    top: 0 !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#google_translate_element2 {
+    display: none !important;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 700px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    -webkit-transition-delay: 750ms;
+    /* Safari */
+    transition-delay: 750ms;
+}
+
+.rrw_trail_copyrightOnSides {
+    width: 15px;
+}
+
+.rrw_map_link_list {
+    vertical-align: top;
+    font-size: larger;
+}
+
+@media (max-width: 643px) {
+    .rrw_trail_copyrightOnSides {
+        display: none;
+    }
+
+    body .entry-title .entry-header,
+    .entry-content,
+    .entry-summary,
+    .entry-meta {
+        margin: 1px;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    h2 {
+        margin: 1px;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+}
+
+@media (max-width: 643px) {
+
+    #content .entry-header,
+    #content .entry-content,
+    #content .entry-summary,
+    #content footer.entry-meta,
+    #content .featured-gallery,
+    .search.sidebar .page-content,
+    .blog.sidebar .page-content,
+    .sidebar .post-navigation .nav-links,
+    .paging-navigation .nav-links,
+    #content .author-info,
+    .comments-area .comments-title,
+    .comments-area .comment-list,
+    .comments-area .comment-navigation,
+    .comment-respond,
+    .sidebar .site-info,
+    .sidebar .paging-navigation .nav-links {
+        margin: 1px;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+}
+
+.comments-area {
+    display: none;
 }

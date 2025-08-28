@@ -23,7 +23,7 @@ print "
 </div>  <!-- #main -->
 <!-- page created by footer.php  -->
 <!--  --------------------------------------------------------------- footer begins here-->\n";
-$switchName = rrw_trail_SetSwitshName();
+$switchName = rrw_trail_SetSwitchName();
 if (
     array_key_exists("nohead", $_GET) &&
     (strcmp("picture", $switchName) == 0 ||

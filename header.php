@@ -58,7 +58,7 @@ ini_set("display_errors", true);
     $rrw_trail_menu_footer_text_color =
         get_option("freewheelingeasy_menu_footer_text_color", "white");
     // switchname used to select different header based on url
-    $switchName = rrw_trail_SetSwitshName();
+    $switchName = rrw_trail_SetSwitchName();
     print "\n<!-- themes style section based on url and customizations  - $switchName -->\n";
     switch ($switchName) { // set styles base on switch
         case "eriepittsburgh":

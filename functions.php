@@ -278,7 +278,7 @@ We track website usage history via Google Analytics. For <b>Google Analytics'</b
 // -------------------------------------  cause it to happen in activation of theme
 add_action("after_setup_theme ", 'rrw_trail_buildPolicypage');
 // -------------------------------------  switchname used to select different header based on url
-function rrw_trail_SetSwitshName()
+function rrw_trail_SetSwitchName()
 {
     global $eol;
     $siteUrl = site_url();
