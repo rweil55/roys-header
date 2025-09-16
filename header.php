@@ -15,7 +15,7 @@
  *	   at a height of about 150
  *	Under "appearance", "customize", "Site Identity" enter header text
  *	Upload right hand header images to the directory wp-content/upload/Top-Banner-Images
- *			if no right hand image wanted, leave direcory empty
+ *			if no right hand image wanted, leave directory empty
  *
  */
 
@@ -99,7 +99,7 @@ div.eriemenu {
     id='jquery-migrate-js'></script>
 <link rel='stylesheet'
     href='https://pictures.shaw-weil.com/wp-content/plugins/roys-picture-processing/pictures.css' media='all'
-    id='picture.csss' ></link>
+    id='picture.css' ></link>
 <style >
 .nav_rrw_buttons {
     display: block;
@@ -144,7 +144,7 @@ div.eriemenu {
             $_GET['nohead'] = "true"; // force no header
             break;
         default:
-            print "<p>E#1302 Unkown switchName of '$switchName' in header.php</p> ";
+            print "<p>E#1302 Unknown switchName of '$switchName' in header.php</p> ";
             break;
     }
     // end f ( $switchName == "eriepittsburgh" )
@@ -274,7 +274,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 		<area href="/helpus/" shape="rect" coords="566, 0, 735, 44"
 				alt="Link to How to make a contribution page">
 		</map>
-        <div style=\'align-centr\'>
+        <div style=\'align-center\'>
 		<img class="nav_rrw_buttons" src="/wp-content/themes/roys-header/images/sign-buttons-v2.gif" usemap="#FPMap0_I1" alt="navigation buttons" width="735" height="44" >
         </div>
     <!-- navigation buttons -->
@@ -450,7 +450,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         case "tommarellogc":
             print rrwHeaderMenu();
             /*
-        ?>
+        ?>      // code moved to subroutine, o that footer can show menu as well
             <div id="navbar" class="menucolor" style="z-level:1;">
                 <nav id="site-navigation" class="navigation main-navigation menucolor">
                     <table role="presentation">
@@ -476,6 +476,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             </div>      <!-- id=navbar  -->
 ";
 */
+
             break;
         default:
             print "
@@ -492,3 +493,35 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <!-- #masthead -->
     <!--  ===== last line -2 of header.php ============================================ main content -->
     <div id="main" class="site-main">
+        <?php
+        function rrwHeaderMenu()
+        {
+            $msg = "";
+            $msg .= "<!--  rrwHeaderMenu  -->
+            <div id=\"navbar\" class=\"eriemenu  menucolor\" style='z-level:1;'>
+                <nav id=\"site-navigation\" class=\"navigation main-navigation menucolor\">
+                    <table role=\"presentation\">
+                        <tr>
+                            <td>
+                                <h3 class=\"menu-toggle\">
+                                    <?php _e('Menu', 'twentythirteen'); ?>
+                                </h3>
+                                <a class=\"screen-reader-text skip-link\" href=\"#content\" title=\"<?php esc_attr_e('Skip to content', 'twentythirteen'); ?>\">
+                                    <?php _e('Skip to content', 'twentythirteen'); ?>
+                                </a>";
+            $rrw_trail_menuText = wp_nav_menu(array(
+                'theme_location' => 'primary',
+                'menu_class' => 'nav-menu menucolor',
+                'echo' => false
+            ));
+            $msg .= $rrw_trail_menuText;
+            $msg .= "
+                            </td>
+                        </tr>
+                    </table>
+                </nav>
+            </div>
+            <!-- id=navbar  -->
+            ";
+            return $msg;
+        }

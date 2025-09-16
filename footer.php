@@ -244,7 +244,7 @@ function rrwTrail_footer_theyworking(
     ';
     return;
 } // end rrwTrail_footer_theyworking
-
+/*
 function rrwHeaderMenu()
 {
     $msg = "";
@@ -276,3 +276,4 @@ function rrwHeaderMenu()
             ";
     return $msg;
 }
+*/
