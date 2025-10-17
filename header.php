@@ -224,10 +224,11 @@ div.eriemenu {
 </div>
             <!-- end /div id='rrw_header_menu_block_1' --> ";
                 break;
-            /*  // picture has it own special header, does not use this code
             case "picture":
             case "picturedev":
-                if ($debugSwitch) print "working on picture header $eol";
+                break;
+            /*  // picture has it own special header, does not use this code
+                 if ($debugSwitch) print "working on picture header $eol";
                 if ("picturedev" == $switchName)
                     $dev = "-dev";
                 else
@@ -386,7 +387,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             case "validate":
                 break;
             default:
-                print "<p>E#1304 Unknown switchName of '$switchName.jpg' in header.php</p> ";
+                print "<p>E#1304 Unknown switchName of '$switchName' in header.php</p> ";
         } // end of switch";
     } // end if ( $mobile )
 
@@ -479,9 +480,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 
             break;
         default:
-            print "
-<p>E#1305 Unknown switchName of '$switchName' in header.php</p>
-";
+            print "<p>E#1305 Unknown switchName of '$switchName' in header.php</p> ";
     } // end switchName == "eriepittsburgh" )
     ?>
 
