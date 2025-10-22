@@ -226,8 +226,7 @@ div.eriemenu {
                 break;
             case "picture":
             case "picturedev":
-                break;
-            /*  // picture has it own special header, does not use this code
+                // picture has it own special header, does not use this code
                  if ($debugSwitch) print "working on picture header $eol";
                 if ("picturedev" == $switchName)
                     $dev = "-dev";
@@ -249,7 +248,7 @@ div.eriemenu {
                         bytes $eol ";
                 print $box;
                 break;
-                */
+
             case "theyworking":
                 print '
     <table border="0" id="table2" cellspacing="0" cellpadding="0"
