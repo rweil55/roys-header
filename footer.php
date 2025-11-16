@@ -40,17 +40,17 @@ if (array_key_exists("nohead", $_GET)) {
     return;
 };
 switch ($switchName) {
-    case "tailonly":
+    case "tailOnly":
         if (is_user_logged_in()) {
-            print "<!-- Option is tailonly with a looged in user. therefore on display -->";
+            print "<!-- Option is tailOnly with a looged in user. therefore on display -->";
             break; // if  user logged in no footer, else fall thru to display
         }
     case "eriepittsburgh":
     case "normal":
     case "linkup";
     case "picture":
-    case "picturedev":
-    case "tailonly":
+    case "pictureDev":
+    case "tailOnly":
     case "tommarellogc":
 
         rrwTrail_footer_default(
@@ -64,12 +64,20 @@ switch ($switchName) {
             $rrw_trail_menu_footer_background_color,
             $rrw_trail_menu_footer_text_color
         );
-    case "clean":
-    case "validate":
-        print "<!-- no footer displayed -->";
+	case "clean":
+	case "validate":
+       print "<!-- no footer displayed -->";
         break;
-    case "theyworking":
-        rrwTrail_footer_theyworking(
+	case "nudges":
+		print " <!-- no footer displayed -->
+        <style>
+            .entry-title{
+                display: none;
+            }
+        </style>";
+        break;
+    case "theyWorking":
+        rrwTrail_footer_theyWorking(
             $rrw_trail_menu_footer_background_color,
             $rrw_trail_menu_footer_text_color
         );
@@ -88,7 +96,7 @@ wp_footer();
 print "
 </body>
 </html>";
-
+print "debug footer picture";
 function rrwTrail_footer_Picture($backgroundcolor, $rrw_trail_menu_footer_text_color)
 {
     print "
@@ -203,7 +211,7 @@ function rrwTrail_footer_dino(
     print "  <div class='dinoMenu' > $content </div>";
 }
 
-function rrwTrail_footer_theyworking(
+function rrwTrail_footer_theyWorking(
     $rrw_trail_menu_footer_background_color,
     $rrw_trail_menu_footer_text_color
 ) {
@@ -243,7 +251,7 @@ function rrwTrail_footer_theyworking(
     </table>
     ';
     return;
-} // end rrwTrail_footer_theyworking
+} // end rrwTrail_footer_theyWorking
 /*
 function rrwHeaderMenu()
 {

@@ -22,7 +22,7 @@
 $debugSwitch = false;
 $eol = "<br />\n";
 //if ( current_user_can( "edit_users" ) ) {
-ini_set("display_errors", true);
+ini_set("display_errors", "0");
 //} // else no auto debug
 ?>
 <!DOCTYPE html>
@@ -35,7 +35,6 @@ ini_set("display_errors", true);
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
-
 <head>
     <!-- page created by header.php try #4 -->
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -60,9 +59,10 @@ ini_set("display_errors", true);
     // switchname used to select different header based on url
     $switchName = rrw_trail_SetSwitchName();
     print "\n<!-- themes style section based on url and customizations  - $switchName -->\n";
+
     switch ($switchName) { // set styles base on switch
         case "eriepittsburgh":
-            print "
+           print "
 <style>
 div.erieswishlogo {
 	position: relative;
@@ -86,11 +86,11 @@ div.eriemenu {
 /* Mobile devices */
 @media (max-width: 359px) {
 }
-<style>
+</style>
     ";
             break;
         case "picture":
-        case "picturedev":
+        case "pictureDev":
             print "
 <script src='/wp-content/plugins/roys-picture-processing/pictures.js'></script>
 <script src='https://pictures.shaw-weil.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0'
@@ -100,10 +100,10 @@ div.eriemenu {
 <link rel='stylesheet'
     href='https://pictures.shaw-weil.com/wp-content/plugins/roys-picture-processing/pictures.css' media='all'
     id='picture.css' ></link>
-<style >
+<style>
 .nav_rrw_buttons {
     display: block;
-    matgin-left: auto;
+    margin-left: auto;
     margin-right: auto;
 }
 </style>
@@ -129,16 +129,17 @@ div.eriemenu {
             </style>
         <?php
             break;
-        case "theyworking":
+        case "theyWorking":
         case "tommarellogc":
             $rrw_trail_menu_footer_text_color = "white";
             break;
-        case "normal":
-        case "clean":
-        case "dino":
+		case "normal":
+		case "clean":
+		case "dino":
+		case "edit":
         case "linkup":
-        case "tailonly":
-        case "edit":
+        case "nudges":
+        case "tailOnly":
             break;
         case "validate":
             $_GET['nohead'] = "true"; // force no header
@@ -147,7 +148,7 @@ div.eriemenu {
             print "<p>E#1302 Unknown switchName of '$switchName' in header.php</p> ";
             break;
     }
-    // end f ( $switchName == "eriepittsburgh" )
+     // end f ( $switchName == "eriepittsburgh" )
     print "
 <style>
 .menucolor {
@@ -165,7 +166,10 @@ div.eriemenu {
         background-color: $rrw_trail_menu_footer_background_color;
         min-height: 26px;
     }
-    .nav-menu .current_page_item > a, .nav-menu .current_page_ancestor > a, .nav-menu .current-menu-item > a, .nav-menu .current-menu-ancestor > a {
+    .nav-menu .current_page_item > a,
+    .nav-menu .current_page_ancestor > a, .
+    nav-menu .current-menu-item > a,
+    .nav-menu .current-menu-ancestor > a {
         color: $rrw_trail_menu_footer_background_color!important;
         background-color: $rrw_trail_menu_footer_text_color;
     }
@@ -176,9 +180,7 @@ div.eriemenu {
 <!-- end themes style section based on url and customizations -->
 <script src='https://pictures.shaw-weil.com/randomTrailPicture.js'></script>
 </head>
-<body ";
-    body_class();
-    print ">
+<body <?php body_class(); ?>
     <div id='page' class='hfeed site'>
         <!--  ==================================================================================================== header -->
         <header id='masthead' style='text-align:left;'>
@@ -207,6 +209,28 @@ div.eriemenu {
         print "<!-- mobile devices do not get the images -->\n";
     } else {
         switch ($switchName) {
+
+            case "nudges":
+                 $imageSource = get_bloginfo('stylesheet_directory') . "/images/justSaying150.png";
+				print "
+            <!-- start div id='rrw_header_menu_block_1' -->
+<div id='rrw_header_menu_block' >
+    <table id='rrw_header_mastheadPhotos' style='max-height: 30px; border:2px' role='presentation'>
+        <tr>
+            <td><img src='$imageSource' class='alignnone' height='100%x' width='100%'></td>
+            <td> <h1>Creative Nudges</h1></td>
+            <td>
+                <div id='rrw_header_searchform' >
+                    <form action='/search' >
+                    <br />Enter a one word search term <br />
+                    <input type='text' name='SearchBox' id='SearchBox'/><br/>
+                    <input type='submit' value='Please find me a nudge(s)' >
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </table>";
+    break;
             case "eriepittsburgh": // -------------------------------------------- header erie
                 $imageSource = get_bloginfo('stylesheet_directory') . "/images/cropped-swishlogo.jpg";
                 print "
@@ -224,11 +248,12 @@ div.eriemenu {
 </div>
             <!-- end /div id='rrw_header_menu_block_1' --> ";
                 break;
-            case "picture":
-            case "picturedev":
+			case "picture":
+			case "pictureDev":
+				break;
                 // picture has it own special header, does not use this code
                  if ($debugSwitch) print "working on picture header $eol";
-                if ("picturedev" == $switchName)
+                if ("pictureDev" == $switchName)
                     $dev = "-dev";
                 else
                     $dev = "";
@@ -249,7 +274,7 @@ div.eriemenu {
                 print $box;
                 break;
 
-            case "theyworking":
+            case "theyWorking":
                 print '
     <table border="0" id="table2" cellspacing="0" cellpadding="0"
     style=\'width:100%; border:0;
@@ -284,7 +309,8 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 </table>
         ';
                 break;
-            case "normal":
+			case "normal":
+			case "nudges":
             case "linkup":
                 // build sme variables
                 $LogoImage = get_header_image();
@@ -313,7 +339,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <table id='rrw_header_mastheadPhotos' style='min-height: 30px;
             border: 2px; ' role='presentation'>
         <tr>
-            <td><a class='home-link site-description' href='$siteUrl' title='$homeName' rel='home'>
+            border: 2px solid; ' role='presentation'>
                     <img src='$LogoImage' alt='$homeName logo ' class='alignnone size-full' > </a>
             </td>
             <td style='text-align:center; border:thin;'>
@@ -346,7 +372,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                 break;
             case "dino":
             case "clean":
-            case "tailonly":
+            case "tailOnly":
             case "edit":
                 print "<!-- no header displayed -->";
                 break;
@@ -397,10 +423,11 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     // --------------------------------------------------------- nave bar code
     switch ($switchName) {
         case "eriepittsburgh": // --------------------------------------------
+        case "nudges":
             // eriepittsburgh has menu buried i the swish
         ?>
 
-            <div id="navbar" class="eriemenu  menucolor" style='z-level:1;'>
+            <div id="navbar" class="eriemenu  menucolor" style='z-index:1;'>
                 <nav id="site-navigation" class="navigation main-navigation menucolor">
                     <table role="presentation">
                         <tr>
@@ -435,9 +462,9 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         case "dino1":
         case "clean":
         case "picture":
-        case "picturedev":
-        case "tailonly":
-        case "theyworking":
+        case "pictureDev":
+        case "tailOnly":
+        case "theyWorking":
         case "edit":
         case "validate":
             // menu is displayed on top of the header image
@@ -449,34 +476,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         case "linkup":
         case "tommarellogc":
             print rrwHeaderMenu();
-            /*
-        ?>      // code moved to subroutine, o that footer can show menu as well
-            <div id="navbar" class="menucolor" style="z-level:1;">
-                <nav id="site-navigation" class="navigation main-navigation menucolor">
-                    <table role="presentation">
-                        <tr class="nav-menu menucolor">
-                            <td>
-                                <h3 class="menu-toggle">
-                                    <?php _e("Menu", "twentythirteen"); ?>
-                                </h3>
-                                <a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e("Skip to content", "twentythirteen"); ?>">
-                                    <?php _e("Skip to content", "twentythirteen"); ?>
-                                </a>
-                        <?php
-                        $rrw_trail_menuText = wp_nav_menu(array(
-                            "theme_location" => "primary",
-                            "menu_class" => "nav-menu menucolor",
-                            "echo" => false
-                        ));
-                        print $rrw_trail_menuText . "
-                            </td>
-                       </tr>
-                   </table>
-                </nav>
-            </div>      <!-- id=navbar  -->
-";
-*/
-
+            // code moved to subroutine, o that footer can show menu as well
             break;
         default:
             print "<p>E#1305 Unknown switchName of '$switchName' in header.php</p> ";
@@ -496,7 +496,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         {
             $msg = "";
             $msg .= "<!--  rrwHeaderMenu  -->
-            <div id=\"navbar\" class=\"eriemenu  menucolor\" style='z-level:1;'>
+            <div id=\"navbar\" class=\"eriemenu  menucolor\" style='z-index:1;'>
                 <nav id=\"site-navigation\" class=\"navigation main-navigation menucolor\">
                     <table role=\"presentation\">
                         <tr>
@@ -523,3 +523,4 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             ";
             return $msg;
         }
+?>

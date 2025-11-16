@@ -285,10 +285,12 @@ function rrw_trail_SetSwitchName()
     $siteUrl = site_url();
     if (strpos($siteUrl, "dinomitedays") !== false)
         $switchName = "dino1";
+    elseif (strpos($siteUrl, "creative") !== false)
+        $switchName = "nudges";
     elseif (strpos($siteUrl, "eriepittsburgh") !== false)
         $switchName = "eriepittsburgh";
     elseif (strpos($siteUrl, "devpicture") !== false)
-        $switchName = "picturedev";
+        $switchName = "pictureDev";
     elseif (strpos($siteUrl, "edit.shaw-weil") !== false)
         $switchName = "edit";
     elseif (strpos($siteUrl, "picture") !== false)
@@ -296,7 +298,7 @@ function rrw_trail_SetSwitchName()
     elseif (strpos($siteUrl, "retrospective") !== false)
         $switchName = "clean";
     elseif (strpos($siteUrl, 'they-working') !== false)
-        $switchName = "theyworking";
+        $switchName = "theyWorking";
     elseif (strpos($siteUrl, "tommarellogc") !== false)
         $switchName = "tommarellogc";
     elseif (strpos($siteUrl, "validate") !== false)

@@ -11,6 +11,7 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": "active",
     "editor.formatOnSave": true,
+    "intelephense.files.maxSize": 3000000,
     "intelephense.stubs": [
         "apache",
         "bcmath",
