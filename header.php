@@ -135,6 +135,7 @@ div.eriemenu {
             break;
 		case "normal":
 		case "clean":
+		case "demo7":
 		case "dino":
 		case "edit":
         case "linkup":
@@ -211,6 +212,7 @@ div.eriemenu {
         switch ($switchName) {
 
             case "nudges":
+		    case "demo7":
                  $imageSource = get_bloginfo('stylesheet_directory') . "/images/justSaying150.png";
 				print "
             <!-- start div id='rrw_header_menu_block_1' -->
@@ -218,13 +220,12 @@ div.eriemenu {
     <table id='rrw_header_mastheadPhotos' style='max-height: 30px; border:2px' role='presentation'>
         <tr>
             <td><img src='$imageSource' class='alignnone' height='100%x' width='100%'></td>
-            <td> <h1>Creative Nudges</h1></td>
+            <td> <h1>CREATIVE NUDGES&trade;</h1></td>
             <td>
                 <div id='rrw_header_searchform' >
-                    <form action='/search' >
-                    <br />Enter a one word search term <br />
-                    <input type='text' name='SearchBox' id='SearchBox'/><br/>
-                    <input type='submit' value='Please find me a nudge(s)' >
+                    <form action='home' onlostfocus='this.submit();' method='get'   >
+                        <input type='text' name='SearchBox' id='SearchBox' placeholder='Enter a one word search term' width='300px' /><br/>
+                        <input type='submit' value='Please give me a nudge(s)' >
                     </form>
                 </div>
             </td>
@@ -359,7 +360,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                     // no logo image just the search box
                     print '
     <span class="screen-reader-text">Search for:</span>
-    <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+    <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="searchBox" />
     </label>
     <input type="submit" class="search-submit" value="Search" />
     </form>
@@ -422,8 +423,9 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     ";
     // --------------------------------------------------------- nave bar code
     switch ($switchName) {
-        case "eriepittsburgh": // --------------------------------------------
-        case "nudges":
+		case "eriepittsburgh": // --------------------------------------------
+		case "nudges":
+		case "demo7":
             // eriepittsburgh has menu buried i the swish
         ?>
 

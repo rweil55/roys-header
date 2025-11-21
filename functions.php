@@ -287,6 +287,8 @@ function rrw_trail_SetSwitchName()
         $switchName = "dino1";
     elseif (strpos($siteUrl, "creative") !== false)
         $switchName = "nudges";
+    elseif (strpos($siteUrl, "demo7") !== false)
+        $switchName = "nudges";
     elseif (strpos($siteUrl, "eriepittsburgh") !== false)
         $switchName = "eriepittsburgh";
     elseif (strpos($siteUrl, "devpicture") !== false)
@@ -308,6 +310,7 @@ function rrw_trail_SetSwitchName()
     // allows testing of switchname in non-production
     $switch_parameter = rrwParam::String("switch");
     if (!empty($switch_parameter))
+
         $switchName = $switch_parameter;
     return $switchName;
 }

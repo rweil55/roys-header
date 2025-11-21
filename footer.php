@@ -9,6 +9,9 @@
  * @since Twenty Thirteen 1.0
  *
  */
+
+global $wpdb;       // word press database object
+
 $rrw_old_in_set_display_errors = ini_set("display_errors", true);
 include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 $rrw_trail_menu_footer_background_color = get_option(
@@ -24,11 +27,7 @@ print "
 <!-- page created by footer.php  -->
 <!--  --------------------------------------------------------------- footer begins here-->\n";
 $switchName = rrw_trail_SetSwitchName();
-if (
-    array_key_exists("nohead", $_GET) &&
-    (strcmp("picture", $switchName) == 0 ||
-        strcmp("picduredev", $switchName == 0))
-) {
+if (    array_key_exists("nohead", $_GET) &&    (strcmp("picture", $switchName) == 0 || strcmp("picduredev", $switchName == 0)) ) {
     return;
 }
 if (array_key_exists("nohead", $_GET)) {
@@ -69,12 +68,18 @@ switch ($switchName) {
        print "<!-- no footer displayed -->";
         break;
 	case "nudges":
-		print " <!-- no footer displayed -->
-        <style>
-            .entry-title{
-                display: none;
-            }
-        </style>";
+	case "demo7":
+        // hide all entry titles, each page will have its one editable title
+            print "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var titles = document.getElementsByClassName('entry-title');
+                    for (var i = 0; i < titles.length; i++) {
+                        titles[i].style.display = 'none';
+                    }
+                }
+                );
+            </script>
+            ";
         break;
     case "theyWorking":
         rrwTrail_footer_theyWorking(
@@ -96,7 +101,6 @@ wp_footer();
 print "
 </body>
 </html>";
-print "debug footer picture";
 function rrwTrail_footer_Picture($backgroundcolor, $rrw_trail_menu_footer_text_color)
 {
     print "
