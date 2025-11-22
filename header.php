@@ -18,7 +18,6 @@
  *			if no right hand image wanted, leave directory empty
  *
  */
-
 $debugSwitch = false;
 $eol = "<br />\n";
 //if ( current_user_can( "edit_users" ) ) {
@@ -59,7 +58,6 @@ ini_set("display_errors", "0");
     // switchname used to select different header based on url
     $switchName = rrw_trail_SetSwitchName();
     print "\n<!-- themes style section based on url and customizations  - $switchName -->\n";
-
     switch ($switchName) { // set styles base on switch
         case "eriepittsburgh":
            print "
@@ -118,11 +116,9 @@ div.eriemenu {
                     text-align: left;
                     line-height: 1.2;
                 }
-
                 .dinoMenu a {
                     color: white;
                 }
-
                 .dinoMenu strong {
                     color: black;
                 }
@@ -210,7 +206,6 @@ div.eriemenu {
         print "<!-- mobile devices do not get the images -->\n";
     } else {
         switch ($switchName) {
-
             case "nudges":
 		    case "demo7":
                  $imageSource = get_bloginfo('stylesheet_directory') . "/images/justSaying150.png";
@@ -274,7 +269,6 @@ div.eriemenu {
                         bytes $eol ";
                 print $box;
                 break;
-
             case "theyWorking":
                 print '
     <table border="0" id="table2" cellspacing="0" cellpadding="0"
@@ -340,8 +334,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <table id='rrw_header_mastheadPhotos' style='min-height: 30px;
             border: 2px; ' role='presentation'>
         <tr>
-            border: 2px solid; ' role='presentation'>
-                    <img src='$LogoImage' alt='$homeName logo ' class='alignnone size-full' > </a>
+                     <img src='$LogoImage' alt='$homeName logo ' class='alignnone size-full' > </a>
             </td>
             <td style='text-align:center; border:thin;'>
                <a href='$siteUrl' title='$homeName' rel='home'>
@@ -416,8 +409,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                 print "<p>E#1304 Unknown switchName of '$switchName' in header.php</p> ";
         } // end of switch";
     } // end if ( $mobile )
-
-
     print "\n\n
     <!--  =============================================================================== nav bar -->
     ";
@@ -428,7 +419,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 		case "demo7":
             // eriepittsburgh has menu buried i the swish
         ?>
-
             <div id="navbar" class="eriemenu  menucolor" style='z-index:1;'>
                 <nav id="site-navigation" class="navigation main-navigation menucolor">
                     <table role="presentation">
@@ -456,11 +446,9 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             <!-- id=navbar  -->
     <?php
             break;
-
         case "dino":
             print "<a href='/' ><img src='/wp-content/themes/roys-header/images/dinoLogo.png' width='768' ></a>";
             break;
-
         case "dino1":
         case "clean":
         case "picture":
@@ -473,7 +461,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             // or not displayed at all
             print " <!-- No menu displayed -->";
             break;
-
         case "normal":
         case "linkup":
         case "tommarellogc":
@@ -484,7 +471,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             print "<p>E#1305 Unknown switchName of '$switchName' in header.php</p> ";
     } // end switchName == "eriepittsburgh" )
     ?>
-
     <!-- =====================================  end #navbar -->
     </div>
     </header>
