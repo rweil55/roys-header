@@ -35,7 +35,7 @@ ini_set("display_errors", "0");
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
-    <!-- page created by header.php try #4 -->
+    <!-- page created by header.php try #6 ---------------------------------------- -->
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
     <title>
@@ -57,7 +57,7 @@ ini_set("display_errors", "0");
         get_option("freewheelingeasy_menu_footer_text_color", "white");
     // switchname used to select different header based on url
     $switchName = rrw_trail_SetSwitchName();
-    print "\n<!-- themes style section based on url and customizations  - $switchName -->\n";
+    print "\n<!-- themes style section based on url and customizations  - $switchName ---------------------------------- -->\n";
     switch ($switchName) { // set styles base on switch
         case "eriepittsburgh":
            print "
@@ -205,27 +205,31 @@ div.eriemenu {
     if ($mobile && (0 != strcmp("dino1", $switchName))) {
         print "<!-- mobile devices do not get the images -->\n";
     } else {
+        // -------------------------------------------------------------------------------------------------   heading display
         switch ($switchName) {
             case "nudges":
 		    case "demo7":
-                 $imageSource = get_bloginfo('stylesheet_directory') . "/images/justSaying150.png";
+                 $imageSource = "/wp-content/themes/roys-header/images/jus-sayin-slanted-logo.png";
 				print "
             <!-- start div id='rrw_header_menu_block_1' -->
 <div id='rrw_header_menu_block' >
     <table id='rrw_header_mastheadPhotos' style='max-height: 30px; border:2px' role='presentation'>
         <tr>
-            <td><img src='$imageSource' class='alignnone' height='100%x' width='100%'></td>
-            <td> <h1>CREATIVE NUDGES&trade;</h1></td>
-            <td>
+           <td> <h2 style=' ' valign='top' >CREATIVE NUDGES&trade;</h2></td>
+             <td><img src='$imageSource' height='500%' align='left' ></td>
+          <td>
                 <div id='rrw_header_searchform' >
                     <form action='home' onlostfocus='this.submit();' method='get'   >
-                        <input type='text' name='SearchBox' id='SearchBox' placeholder='Enter a one word search term' width='300px' /><br/>
-                        <input type='submit' value='Please give me a nudge(s)' >
+                         <input type='submit' value='Please find me a nudge(s)' ><br />
+                       <input type='text' style='width:198px;' name='SearchBox' id='SearchBox' placeholder='Enter a one word search term' /><br/>
                     </form>
                 </div>
             </td>
         </tr>
-    </table>";
+    </table>
+</div>
+            <!-- end /div id='rrw_header_menu_block_1' -->
+    ";
     break;
             case "eriepittsburgh": // -------------------------------------------- header erie
                 $imageSource = get_bloginfo('stylesheet_directory') . "/images/cropped-swishlogo.jpg";
@@ -246,8 +250,7 @@ div.eriemenu {
                 break;
 			case "picture":
 			case "pictureDev":
-				break;
-                // picture has it own special header, does not use this code
+                                // picture has it own special header, does not use this code
                  if ($debugSwitch) print "working on picture header $eol";
                 if ("pictureDev" == $switchName)
                     $dev = "-dev";
