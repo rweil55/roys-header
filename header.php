@@ -34,6 +34,7 @@ ini_set("display_errors", "0");
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
+
 <head>
     <!-- page created by header.php try #6 ---------------------------------------- -->
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -60,7 +61,7 @@ ini_set("display_errors", "0");
     print "\n<!-- themes style section based on url and customizations  - $switchName ---------------------------------- -->\n";
     switch ($switchName) { // set styles base on switch
         case "eriepittsburgh":
-           print "
+            print "
 <style>
 div.erieswishlogo {
 	position: relative;
@@ -116,9 +117,11 @@ div.eriemenu {
                     text-align: left;
                     line-height: 1.2;
                 }
+
                 .dinoMenu a {
                     color: white;
                 }
+
                 .dinoMenu strong {
                     color: black;
                 }
@@ -129,11 +132,11 @@ div.eriemenu {
         case "tommarellogc":
             $rrw_trail_menu_footer_text_color = "white";
             break;
-		case "normal":
-		case "clean":
-		case "demo7":
-		case "dino":
-		case "edit":
+        case "normal":
+        case "clean":
+        case "demo7":
+        case "dino":
+        case "edit":
         case "linkup":
         case "nudges":
         case "tailOnly":
@@ -145,7 +148,7 @@ div.eriemenu {
             print "<p>E#1302 Unknown switchName of '$switchName' in header.php</p> ";
             break;
     }
-     // end f ( $switchName == "eriepittsburgh" )
+    // end f ( $switchName == "eriepittsburgh" )
     print "
 <style>
 .menucolor {
@@ -208,9 +211,9 @@ div.eriemenu {
         // -------------------------------------------------------------------------------------------------   heading display
         switch ($switchName) {
             case "nudges":
-		    case "demo7":
-                 $imageSource = "/wp-content/themes/roys-header/images/jus-sayin-slanted-logo.png";
-				print "
+            case "demo7":
+                $imageSource = "/wp-content/themes/roys-header/images/jus-sayin-slanted-logo.png";
+                print "
             <!-- start div id='rrw_header_menu_block_1' -->
 <div id='rrw_header_menu_block' >
     <table id='rrw_header_mastheadPhotos' style='max-height: 30px; border:2px' role='presentation'>
@@ -219,7 +222,7 @@ div.eriemenu {
              <td><img src='$imageSource' height='500%' align='left' ></td>
           <td>
                 <div id='rrw_header_searchform' >
-                    <form action='home' onlostfocus='this.submit();' method='get'   >
+                    <form action='onecard' onlostfocus='this.submit();' method='get'   >
                          <input type='submit' value='Please find me a nudge(s)' ><br />
                        <input type='text' style='width:198px;' name='SearchBox' id='SearchBox' placeholder='Enter a one word search term' /><br/>
                     </form>
@@ -230,7 +233,7 @@ div.eriemenu {
 </div>
             <!-- end /div id='rrw_header_menu_block_1' -->
     ";
-    break;
+                break;
             case "eriepittsburgh": // -------------------------------------------- header erie
                 $imageSource = get_bloginfo('stylesheet_directory') . "/images/cropped-swishlogo.jpg";
                 print "
@@ -248,10 +251,10 @@ div.eriemenu {
 </div>
             <!-- end /div id='rrw_header_menu_block_1' --> ";
                 break;
-			case "picture":
-			case "pictureDev":
-                                // picture has it own special header, does not use this code
-                 if ($debugSwitch) print "working on picture header $eol";
+            case "picture":
+            case "pictureDev":
+                // picture has it own special header, does not use this code
+                if ($debugSwitch) print "working on picture header $eol";
                 if ("pictureDev" == $switchName)
                     $dev = "-dev";
                 else
@@ -307,8 +310,8 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 </table>
         ';
                 break;
-			case "normal":
-			case "nudges":
+            case "normal":
+            case "nudges":
             case "linkup":
                 // build sme variables
                 $LogoImage = get_header_image();
@@ -417,9 +420,9 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     ";
     // --------------------------------------------------------- nave bar code
     switch ($switchName) {
-		case "eriepittsburgh": // --------------------------------------------
-		case "nudges":
-		case "demo7":
+        case "eriepittsburgh": // --------------------------------------------
+        case "nudges":
+        case "demo7":
             // eriepittsburgh has menu buried i the swish
         ?>
             <div id="navbar" class="eriemenu  menucolor" style='z-index:1;'>
@@ -514,4 +517,4 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             ";
             return $msg;
         }
-?>
+        ?>

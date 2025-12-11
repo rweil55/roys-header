@@ -27,7 +27,7 @@ print "
 <!-- page created by footer.php  -->
 <!--  --------------------------------------------------------------- footer begins here-->\n";
 $switchName = rrw_trail_SetSwitchName();
-if (    array_key_exists("nohead", $_GET) &&    (strcmp("picture", $switchName) == 0 || strcmp("picduredev", $switchName == 0)) ) {
+if (array_key_exists("nohead", $_GET) &&    (strcmp("picture", $switchName) == 0 || strcmp("picduredev", $switchName == 0))) {
     return;
 }
 if (array_key_exists("nohead", $_GET)) {
@@ -49,7 +49,6 @@ switch ($switchName) {
     case "linkup";
     case "picture":
     case "pictureDev":
-    case "tailOnly":
     case "tommarellogc":
 
         rrwTrail_footer_default(
@@ -63,14 +62,14 @@ switch ($switchName) {
             $rrw_trail_menu_footer_background_color,
             $rrw_trail_menu_footer_text_color
         );
-	case "clean":
-	case "validate":
-       print "<!-- no footer displayed -->";
+    case "clean":
+    case "validate":
+        print "<!-- no footer displayed -->";
         break;
-	case "nudges":
-	case "demo7":
+    case "nudges":
+    case "demo7":
         // hide all entry titles, each page will have its one editable title
-            print "<script>
+        print "<script>
                 document.addEventListener('DOMContentLoaded', function() {
                     var titles = document.getElementsByClassName('entry-title');
                     for (var i = 0; i < titles.length; i++) {
@@ -266,11 +265,8 @@ function rrwHeaderMenu()
                     <table role=\"presentation\">
                         <tr>
                             <td>
-                                <h3 class=\"menu-toggle\">
-                                    <?php _e('Menu', 'twentythirteen'); ?>
-                                </h3>
-                                <a class=\"screen-reader-text skip-link\" href=\"#content\" title=\"<?php esc_attr_e('Skip to content', 'twentythirteen'); ?>\">
-                                    <?php _e('Skip to content', 'twentythirteen'); ?>
+                                <h3 class=\"menu-toggle\">Menu</h3>
+                                <a class=\"screen-reader-text skip-link\" href=\"#content\" title='Skip to content' 'Skip to content',
                                 </a>";
     $rrw_trail_menuText = wp_nav_menu(array(
         'theme_location' => 'primary',
