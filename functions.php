@@ -334,4 +334,3 @@ function rrw_trail_myformatTinyMCE( $in ) {
     return $in;
 }
 */
-ini_set("display_errors", "rrw_old_in_set_display_errors");

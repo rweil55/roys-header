@@ -162,15 +162,11 @@ function DisplayNormal404()
                     <?php get_search_form(); ?>
                     <div id="wb404" />
                     <script src="https://archive.org/web/wb404.js"> </script>
-                </div>
-            </div>
-            <!-- .page-content -->
-        </div>
-        <!-- .page-wrapper -->
-    </div>
-    <!-- #content -->
-    </div>
-    <!-- #primary -->
+                </div> <!-- .wb404 -->
+            </div> <!-- .page-content -->
+        </div> <!-- .page-wrapper -->
+    </div> <!-- site-content -->
+    </div> <!-- #primary -->
 <?php get_footer();
 } // end function DisplayNormal404
 ?>
