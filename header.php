@@ -340,6 +340,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <table id='rrw_header_mastheadPhotos' style='min-height: 30px;
             border: 2px; ' role='presentation'>
         <tr>
+            <td>
                      <img src='$LogoImage' alt='$homeName logo ' class='alignnone size-full' > </a>
             </td>
             <td style='text-align:center; border:thin;'>
