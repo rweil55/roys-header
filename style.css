@@ -12,7 +12,7 @@ License:           GPLv3+
 License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
 Template:       twentythirteen
 Tested up to:   6.3.1
-Version: 1.3.84
+Version: 1.3.88
 Requires PHP: 7.3
 Requires at least: 6.5
 */
@@ -29,11 +29,9 @@ Post Link: https://wordpress.org/support/topic/icons-do-not-appear-where-i-expec
     min-height: 14px;
     text-align: right !important;
 }
-
 div#sfsi_holder {
     height: 0px !important;
 }
-
 /* end of styles dealing with facebook, etc icons
 styles having to do with the Erie pittsburgh header swish  are located in the header.php routine
 */
@@ -44,13 +42,11 @@ body {
     margin-bottom: 5px;
     font-size: 14px;
 }
-
 .entry-title {
     font-weight: bold;
     font-size: 24px;
     /*	margin-left: 10px; */
 }
-
 .entry-header,
 .entry-content,
 .entry-summary,
@@ -59,58 +55,47 @@ body {
     width: auto;
     max-width: none;
 }
-
 .entry-content {
     /*	float:left;  */
     margin-left: 10px;
     width: auto;
 }
-
 .entry-content a:link {
     color: #0000FF;
 }
-
 .entry-content a:visited {
     color: #0000FF;
 }
-
 .entry-content a:hover {
     text-decoration: underline;
     color: #EA9629;
 }
-
 a.external {
     background-position: right center;
     background-repeat: no-repeat;
     background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%3E%3Cg%20transform%3D%22translate%28-826.429%20-698.791%29%22%3E%3Crect%20width%3D%225.982%22%20height%3D%225.982%22%20x%3D%22826.929%22%20y%3D%22702.309%22%20fill%3D%22%23fff%22%20stroke%3D%22%2306c%22%2F%3E%3Cg%3E%3Cpath%20d%3D%22M831.194%20698.791h5.234v5.391l-1.571%201.545-1.31-1.31-2.725%202.725-2.689-2.689%202.808-2.808-1.311-1.311z%22%20fill%3D%22%2306f%22%2F%3E%3Cpath%20d%3D%22M835.424%20699.795l.022%204.885-1.817-1.817-2.881%202.881-1.228-1.228%202.881-2.881-1.851-1.851z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
     padding-right: 13px;
 }
-
 a.redirect {
     text-decoration-color: pink;
     font-style: italic;
 }
-
 .entry-content img.alignleft,
 .entry-content .wp-caption.alignleft {
     margin-left: 0px;
 }
-
 .entry-content h1 {
     display: inline;
     font-size: 16px;
 }
-
 .entry-content h2 {
     display: inline;
     font-size: 14px;
 }
-
 .entry-content h3 {
     display: inline;
     font-size: 12px;
 }
-
 h1,
 h2,
 h3,
@@ -122,20 +107,16 @@ h6 {
     font-weight: bold;
     line-height: 1.3;
 }
-
 .site-title {
     font-size: 24px;
 }
-
 p {
     margin-bottom: 12px;
 }
-
 table {
     line-height: 1;
     /* over rides the table 2.0 */
 }
-
 td,
 th {
     vertical-align: top;
@@ -145,7 +126,6 @@ th {
     padding: 0;
     height: 20px;
 }
-
 caption {
     vertical-align: top;
     line-height: 1;
@@ -154,50 +134,39 @@ caption {
     padding: 0;
     height: 20px;
 }
-
 .site {
     min-width: 300px
 }
-
 .site-header .home-link {
     min-height: 130px;
 }
-
 .site-title {
     color: #80293D;
     font-family: Aerial, sans-serif;
 }
-
 .site-info {
     padding: 0;
     max-width: none;
 }
-
 .site-paragraph-heading {
     font-weight: bold;
     font-size: larger;
 }
-
 .nav-menu li a {
     padding: 5px 10px;
 }
-
 .navigation:after {
     display: none;
 }
-
 input[type="search"] {
     width: 270px;
 }
-
 .search-form {
     width: 270px;
 }
-
 article {
     display: inline;
 }
-
 .attachment .entry-meta,
 .attachment .entry-description,
 .paging-navigation .nav-links,
@@ -219,14 +188,11 @@ article {
 .site-footer a {
     width: auto;
 }
-
 .form-allowed-tags,
 .form-allowed-tags code {
     color: #686108;
 }
-
 @media all {
-
     .sidebar .entry-header,
     .sidebar .entry-content,
     .sidebar .entry-summary,
@@ -245,17 +211,14 @@ article {
         width: auto;
     }
 }
-
 /*  ---------------------------------- cause masthead and classed stuff to disappear on small screens */
 @media (max-width: 400px),
 (max-height:400px) {
-
     #mastheadPhotos,
     .hideOnSmallScreen {
         display: none;
     }
 }
-
 .trailsiteheader {
     float: left;
     padding-left: 10px;
@@ -263,20 +226,16 @@ article {
     background-color: red
         /* #e8e5ce;  */
 }
-
 /* Google translate styles  */
 #goog-gt-tt {
     display: none !important;
 }
-
 .goog-te-banner-frame {
     display: none !important;
 }
-
 .goog-te-menu-value:hover {
     text-decoration: none !important;
 }
-
 body {
     top: 0 !important;
     margin-left: 10px;
@@ -284,11 +243,9 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
 }
-
 #google_translate_element2 {
     display: none !important;
 }
-
 /* Tooltip container */
 .tooltip {
     position: relative;
@@ -296,7 +253,6 @@ body {
     border-bottom: 1px dotted black;
     /* If you want dots under the hoverable text */
 }
-
 /* Tooltip text */
 .tooltip .tooltiptext {
     visibility: hidden;
@@ -311,7 +267,6 @@ body {
     top: 100%;
     z-index: 1;
 }
-
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
     visibility: visible;
@@ -319,21 +274,17 @@ body {
     /* Safari */
     transition-delay: 750ms;
 }
-
 .rrw_trail_copyrightOnSides {
     width: 15px;
 }
-
 .rrw_map_link_list {
     vertical-align: top;
     font-size: larger;
 }
-
 @media (max-width: 643px) {
     .rrw_trail_copyrightOnSides {
         display: none;
     }
-
     body .entry-title .entry-header,
     .entry-content,
     .entry-summary,
@@ -342,16 +293,13 @@ body {
         padding-left: 1px;
         padding-right: 1px;
     }
-
     h2 {
         margin: 1px;
         padding-left: 1px;
         padding-right: 1px;
     }
 }
-
 @media (max-width: 643px) {
-
     #content .entry-header,
     #content .entry-content,
     #content .entry-summary,
@@ -373,7 +321,19 @@ body {
         padding-right: 1px;
     }
 }
-
 .comments-area {
     display: none;
+}
+.buttonContactSubmit {
+    background-color: pink;
+    border: 2px solid #eb5858;
+    border-radius: 8px;
+    color: black;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }

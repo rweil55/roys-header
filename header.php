@@ -21,7 +21,8 @@
 $debugSwitch = false;
 $eol = "<br />\n";
 //if ( current_user_can( "edit_users" ) ) {
-ini_set("display_errors", "0");
+ini_set("display_errors", "1");
+error_reporting(E_ALL);
 //} // else no auto debug
 ?>
 <!DOCTYPE html>
@@ -51,13 +52,21 @@ ini_set("display_errors", "0");
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
     <?php
+    print "<!-- calling wp_head() <br />$eol -->\n  ";
     wp_head();
+    print "<!-- after calling wp_head() <br />$eol -->\n  ";
     $rrw_trail_menu_footer_background_color =
         get_option("freewheelingeasy_menu_footer_background_color", "black");
     $rrw_trail_menu_footer_text_color =
         get_option("freewheelingeasy_menu_footer_text_color", "white");
     // switchname used to select different header based on url
-    $switchName = rrw_trail_SetSwitchName();
+    print "
+<style>
+.TDflex {
+    float:left
+}
+</style>";
+    $switchName = rrw_trail_SetSwitchName();        // used by serval switches below
     print "\n<!-- themes style section based on url and customizations  - $switchName ---------------------------------- -->\n";
     switch ($switchName) { // set styles base on switch
         case "eriepittsburgh":
@@ -108,30 +117,12 @@ div.eriemenu {
 </style>
 ";
             break;
-        case "dino1":
-    ?>
-            <style>
-                .dinoMenu {
-                    color: black;
-                    background-color: orange;
-                    text-align: left;
-                    line-height: 1.2;
-                }
 
-                .dinoMenu a {
-                    color: white;
-                }
-
-                .dinoMenu strong {
-                    color: black;
-                }
-            </style>
-        <?php
-            break;
         case "theyWorking":
         case "tommarellogc":
             $rrw_trail_menu_footer_text_color = "white";
             break;
+        case "dino1":
         case "normal":
         case "clean":
         case "demo7":
@@ -139,6 +130,7 @@ div.eriemenu {
         case "edit":
         case "linkup":
         case "nudges":
+        case "ohio";
         case "tailOnly":
             break;
         case "validate":
@@ -195,8 +187,10 @@ div.eriemenu {
         $noHeader = true;
     else
         $noHeader = false;
-    if ($noHeader)
+    if ($noHeader) {
+        print "<!-- no header displayed as per request -->";
         return;
+    }
     $mobile = false;
     if (array_key_exists('HTTP_USER_AGENT', $_SERVER)) {
         $browser = $_SERVER['HTTP_USER_AGENT'];
@@ -208,19 +202,24 @@ div.eriemenu {
     if ($mobile && (0 != strcmp("dino1", $switchName))) {
         print "<!-- mobile devices do not get the images -->\n";
     } else {
-        // -------------------------------------------------------------------------------------------------   heading display
+        print "<!--  ------------------------------------------------------------- $switchName ----------------------------   heading display -->";
+        $blogInfoDescription = get_bloginfo('description');
+        $LogoImage = get_header_image();           // default logo image used by serval switches below
+
         switch ($switchName) {
             case "nudges":
             case "demo7":
                 $imageSource = "/wp-content/themes/roys-header/images/jus-sayin-slanted-logo.png";
                 print "
             <!-- start div id='rrw_header_menu_block_1' -->
+
 <div id='rrw_header_menu_block' >
     <table id='rrw_header_mastheadPhotos' style='max-height: 30px; border:2px' role='presentation'>
         <tr>
-           <td> <h2 style=' ' valign='top' >CREATIVE NUDGES&trade;</h2></td>
-             <td><img src='$imageSource' height='500%' align='left' ></td>
-          <td>
+           <td class='TDflex' >
+                <h2 style=' ' valign='top' >CREATIVE NUDGES&trade;</h2></td>
+             <td class='ohioTDflex' > <img src='$imageSource' height='500%' align='left' ></td>
+          <td class='TDflex' >
                 <div id='rrw_header_searchform' >
                     <form action='onecard' onlostfocus='this.submit();' method='get'   >
                          <input type='submit' value='Please find me a nudge(s)' ><br />
@@ -310,20 +309,44 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 </table>
         ';
                 break;
+            //-------------------------------------------------------------------------------------------
+            case "ohio":
+                print "<!-- Ohio River Trail header -->";
+                $siteUrl = site_url();
+                print "
+            <div id='rrw_header_menu_block'>
+    <table id='rrw_header_mastheadPhotos' style='min-height: 30px;
+            border: 2px; ' role='presentation'>
+        <tr>
+            <td class='TDflex'>
+                     <img src='$LogoImage' alt='$homeName logo ' class='alignnone size-full' > </a>
+            </td>
+            <td  border:thin;'>
+               <a href='$siteUrl' title='$homeName' rel='home'>
+                <h1 class='site-title'>$homeName</h1>
+                <h2 class='site-description'> $blogInfoDescription</h2>
+                </a>
+            </td>
+            <td  >
+            <img src='$siteUrl/wp-content/themes/roys-header/images/ohioRiverTrailOverview.jpg'
+                alt='Ohio River Trail Overview' width='200' >
+            </td>
+        </tr>
+    </table>
+    ";
+                break;
+            // -------------------------------------------------------------------------------------------
             case "normal":
-            case "nudges":
             case "linkup":
                 // build sme variables
-                $LogoImage = get_header_image();
                 $rightRandomImage = "<div id='randomTrailImageGoesHereDiv'>one moment while we fetch a trail picture
                 <script>
                     randomPicFunction('randomTrailImageGoesHereDiv');
                 </script>
             </div>";
                 $searchbox = get_search_form(array("echo" => false));
-                $desc = get_bloginfo('description');
                 $siteUrl = site_url();
-                if (empty($desc)) {
+                if (empty($blogInfoDescription)) {
                     // empty description - increase size of title
                     print "
 <style>
@@ -346,7 +369,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             <td style='text-align:center; border:thin;'>
                <a href='$siteUrl' title='$homeName' rel='home'>
                 <h1 class='site-title'>$homeName</h1>
-                <h2 class='site-description'> $desc</h2>
+                <h2 class='site-description'> $blogInfoDescription</h2>
                 </a>
             </td>
             <td class='site-description'>
@@ -417,7 +440,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         } // end of switch";
     } // end if ( $mobile )
     print "\n\n
-    <!--  =============================================================================== nav bar -->
+    <!--  ================================================================= $switchName ============== nav bar -->
     ";
     // --------------------------------------------------------- nave bar code
     switch ($switchName) {
@@ -425,7 +448,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         case "nudges":
         case "demo7":
             // eriepittsburgh has menu buried i the swish
-        ?>
+    ?>
             <div id="navbar" class="eriemenu  menucolor" style='z-index:1;'>
                 <nav id="site-navigation" class="navigation main-navigation menucolor">
                     <table role="presentation">
@@ -471,6 +494,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         case "normal":
         case "linkup":
         case "tommarellogc":
+        case "ohio":
             print rrwHeaderMenu();
             // code moved to subroutine, o that footer can show menu as well
             break;

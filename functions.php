@@ -287,16 +287,16 @@ function rrw_trail_SetSwitchName()
         $switchName = "dino1";
     elseif (strpos($siteUrl, "creative") !== false)
         $switchName = "nudges";
-    elseif (strpos($siteUrl, "demo7") !== false)
-        $switchName = "nudges";
+    elseif (strpos($siteUrl, "edit.shaw-weil") !== false)
+        $switchName = "edit";
     elseif (strpos($siteUrl, "eriepittsburgh") !== false)
         $switchName = "eriepittsburgh";
     elseif (strpos($siteUrl, "devpicture") !== false)
         $switchName = "pictureDev";
-    elseif (strpos($siteUrl, "edit.shaw-weil") !== false)
-        $switchName = "edit";
     elseif (strpos($siteUrl, "picture") !== false)
         $switchName = "picture";
+    elseif (strpos($siteUrl, "ohio") !== false)
+        $switchName = "ohio";
     elseif (strpos($siteUrl, "retrospective") !== false)
         $switchName = "clean";
     elseif (strpos($siteUrl, 'they-working') !== false)

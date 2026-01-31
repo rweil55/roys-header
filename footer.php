@@ -47,6 +47,7 @@ switch ($switchName) {
     case "eriepittsburgh":
     case "normal":
     case "linkup";
+    case "ohio":
     case "picture":
     case "pictureDev":
     case "tommarellogc":

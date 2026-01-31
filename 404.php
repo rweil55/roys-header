@@ -143,12 +143,13 @@ function LookForCreative(): void
 function DisplayNormal404()
 {
     get_header();
+    $url = $_SERVER["REQUEST_URI"];
 ?>
     <div id="primary" class="content-area">
         <div id="content" class="site-content" role="main">
             <header class="page-header">
                 <h1 class="rrw-title">
-                    <?php _e("$url was not Found on site", 'twentythirteen'); ?>
+                    <?php _e("$url was not Found on site ", 'twentythirteen'); ?>
                 </h1>
             </header>
             <div class="page-wrapper">
