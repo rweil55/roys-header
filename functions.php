@@ -25,29 +25,31 @@ function rrw_trail_customize_register($wp_customize)
             'transport' => 'refresh',
         )
     );
-    $book = 'Site design, hosting by the book <a class="external"
-			href="https://freewheelingeasy.com/"> FreeWheeling Easy NE</a>';
+    $book_design_host = 'Site design, hosting by the book <a class="external"
+			href="https://freewheelingeasy.com/"> FreeWheeling Easy NE</a> ';
+    $book_host = 'Site hosting by the book <a class="external"
+			href="https://freewheelingeasy.com/"> FreeWheeling Easy NE</a> ';
     $artincc = 'ARTinCC and Roy Weil - Site design, hosting by the book <a class="external"
-			href="https://freewheelingeasy.com/"> FreeWheeling Easy NE</a>';
-    $roy = "Site design, hosting by <a class='external'
+			href="https://freewheelingeasy.com/"> FreeWheeling Easy NE</a> ';
+    $roy_design_host = "Site design, hosting by <a class='external'
 			href='https://brokenlinks.royweil.com' >Roy Weil Consulting</a>";
-    $shawweil = "<a class='external'
+    $shawWeil_design_host = "Site design, hosting by <a class='external'
 			href='https://freewheelingeasy.com/'> Shaw Weil Associates";
     $copyRights = array(
         "Copyright &copy; 2020, $artincc" => 'artincc',
-        "Copyright &copy; 2021, $book" => 'book1',
-        "Copyright &copy; 2020 by $shawweil, $roy" => 'shawweil Roy',
-        "Copyright &copy; 2020 by Bicycle Access Council, $book" => 'BAC book',
-        "Copyright &copy; 2020 by Weil/Ertell Family genology, $book" => 'family book',
-        "Copyright &copy; 2020, $roy" => 'Roy',
-        "Copyright &copy; 2020 by $shawweil" => 'shaw',
+        "Copyright &copy; 2021, $book_design_host" => 'book_design_host',
+        "Copyright &copy; 2026 by $book_host" => 'book_host',
+        "Copyright &copy; 2020 by Bicycle Access Council, $book_host" => 'BAC book',
+        "Copyright &copy; 2020 by Weil/Ertell Family geology, $book_host" => 'family book',
+        "Copyright &copy; 2020, $roy_design_host" => 'roy_design_host',
+        "Copyright &copy; 2020 by $shawWeil_design_host" => 'shawWeil_design_host',
         "Copyright &copy; 2020 by Eire to Pittsburgh Trail Alliance
-		<a href='https://eriepittsburghtrail.org/get_involved/sponsorssupporters/'> and others</a>, $book" => 'Erie Pittsburgh'
+		<a href='https://eriepittsburghtrail.org/get_involved/sponsorssupporters/'> and others</a>, $book_host" => 'Erie Pittsburgh'
     );
     $wp_customize->add_control(
         'rrwtheme-footer-copyright',
         array(
-            'label' => __('Copyright Designation'),
+            'label' => esc_html__('Copyright Designation'),
             'description' => esc_html__('in middle of footer'),
             'section' => 'title_tagline',
             'priority' => 10, // Optional. Order priority to load the control. Default: 10
