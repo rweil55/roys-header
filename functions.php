@@ -286,7 +286,7 @@ function rrw_trail_SetSwitchName()
     global $eol;
     $siteUrl = site_url();
     if (strpos($siteUrl, "dinomitedays") !== false)
-        $switchName = "dino1";
+        $switchName = "dino";
     elseif (strpos($siteUrl, "creative") !== false)
         $switchName = "nudges";
     elseif (strpos($siteUrl, "edit.shaw-weil") !== false)

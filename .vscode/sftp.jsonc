@@ -1,0 +1,20 @@
+{
+    "name": "maryshaw-creative",
+    "host": "ftp.do-not-go-here.click",
+    "protocol": "ftp",
+    "port": 21,
+    "username": "pillowan",
+    "password": "1357piyrljgd",
+    "remotePath": "www-royweil-testsite/wp-content/themes/roys-header/",
+    "uploadOnSave": true,
+    "useTempFile": false,
+    "openSsh": false,
+    "ignore": [
+        "**/.git/",
+        "**/.vscode/",
+        "*.log",
+        "hidden files for class definitions/*"
+    ]
+}
+//   "remotePath": "www-dinomitedays/wp-content/themes/roys-header/",
+//                  www-royweil-testsite/wp-content/themes

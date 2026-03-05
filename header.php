@@ -37,7 +37,7 @@ error_reporting(E_ALL);
 <!--<![endif]-->
 
 <head>
-    <!-- page created by header.php try #6 ---------------------------------------- -->
+    <!-- page created by header.php try #8  ---------------------------------------- -->
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
     <title>
@@ -117,16 +117,20 @@ div.eriemenu {
 </style>
 ";
             break;
+        case "dino":
+            print "
+<link rel='stylesheet' href='https://dinomitedays.org/wp-content/plugins/dinomitedays/dinomitedays.css' media='all'
+            id='dinomitedays.css' ></link>
+";
+            break;
 
         case "theyWorking":
         case "tommarellogc":
             $rrw_trail_menu_footer_text_color = "white";
             break;
-        case "dino1":
         case "normal":
         case "clean":
         case "demo7":
-        case "dino":
         case "edit":
         case "linkup":
         case "nudges":
@@ -394,7 +398,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                 }
                 print "</div> <!-- end /div id='rrw_header_menu_block_3' -->";
                 break;
-            case "dino":
             case "clean":
             case "tailOnly":
             case "edit":
@@ -405,17 +408,15 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         <img src="https://tommarellogc.com/wp-content/uploads/2014/09/tommarelloLogo.jpg" >
 ';
                 break;
-            case "dino1":
+            case "dino":
                 $title = wp_title("", false);
                 print "<div id=dinoMenu class='dinoMenu' > <!-- entire space is orange -->
             <table class='dinoMenu' style='table-layout: auto;' >
        <tr class='dinoMenu' >
             <td><span class='site-title' > $title </span><br /><br />\n";
                 $siteDire = "/home/pillowan/www-dinomitedays";
-                $contentLoc = "$siteDire/wp-content/plugins/dinomitedays/footer_dino1.php";
-                include "$contentLoc";
-                print "
-            </td>
+                $content = file_get_contents("$siteDire/wp-content/plugins/dinomitedays/footer_dino1.php");
+                print " $content </td>
             ";
                 if ($mobile) { // on mobile devices do not display the logo
                     print "
@@ -477,9 +478,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <?php
             break;
         case "dino":
-            print "<a href='/' ><img src='/wp-content/themes/roys-header/images/dinoLogo.png' width='768' ></a>";
-            break;
-        case "dino1":
         case "clean":
         case "picture":
         case "pictureDev":

@@ -38,6 +38,7 @@ if (array_key_exists("nohead", $_GET)) {
 				$rrw_trail_footerCopyright<br />";
     return;
 };
+
 switch ($switchName) {
     case "tailOnly":
         if (is_user_logged_in()) {
