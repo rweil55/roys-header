@@ -12,7 +12,7 @@ License:           GPLv3+
 License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
 Template:       twentythirteen
 Tested up to:   6.3.1
-Version: 1.3.89
+Version: 1.3.112
 Requires PHP: 7.3
 Requires at least: 6.5
 */
@@ -123,10 +123,6 @@ h6 {
     line-height: 1.3;
 }
 
-.site-title {
-    font-size: 24px;
-}
-
 p {
     margin-bottom: 12px;
 }
@@ -166,6 +162,8 @@ caption {
 .site-title {
     color: #80293D;
     font-family: Aerial, sans-serif;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .site-info {

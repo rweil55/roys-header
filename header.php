@@ -27,7 +27,7 @@ error_reporting(E_ALL);
 ?>
 <!DOCTYPE html>
 <!--[if IE 7]>
-<html class="ie ie7" <?php language_attributes(); ?>>
+<html class="ie ie7" <?php language_attributes(); ?>>wp-element-buttoncreative
 <![endif]-->
 <!--[if IE 8]>
 <html class="ie ie8" <?php language_attributes(); ?>>
@@ -55,8 +55,7 @@ error_reporting(E_ALL);
     print "<!-- calling wp_head() <br />$eol -->\n  ";
     wp_head();
     print "<!-- after calling wp_head() <br />$eol -->\n  ";
-    $rrw_trail_menu_footer_background_color =
-        get_option("freewheelingeasy_menu_footer_background_color", "black");
+    $rrw_trail_menu_footer_background_color = get_option("freewheelingeasy_menu_footer_background_color", "black");
     $rrw_trail_menu_footer_text_color =
         get_option("freewheelingeasy_menu_footer_text_color", "white");
     // switchname used to select different header based on url
@@ -105,9 +104,6 @@ div.eriemenu {
     id='jquery-core-js'></script>
 <script src='https://pictures.shaw-weil.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2'
     id='jquery-migrate-js'></script>
-<link rel='stylesheet'
-    href='https://pictures.shaw-weil.com/wp-content/plugins/roys-picture-processing/pictures.css' media='all'
-    id='picture.css' ></link>
 <style>
 .nav_rrw_buttons {
     display: block;
@@ -116,32 +112,51 @@ div.eriemenu {
 }
 </style>
 ";
+            wp_enqueue_style("pictures", "https://pictures.shaw-weil.com/wp-content/plugins/roys-picture-processing/pictures.css");
             break;
         case "dino":
+        case "dino1":
+            wp_enqueue_style("dino", "https://dinomitedays.org/wp-content/plugins/dinomitedays/dinomitedays.css"); /*
             print "
 <link rel='stylesheet' href='https://dinomitedays.org/wp-content/plugins/dinomitedays/dinomitedays.css' media='all'
             id='dinomitedays.css' ></link>
-";
+"; */
             break;
-
         case "theyWorking":
         case "tommarellogc":
-            $rrw_trail_menu_footer_text_color = "white";
-            break;
-        case "normal":
         case "clean":
         case "demo7":
         case "edit":
         case "linkup":
-        case "nudges":
-        case "ohio";
+            print '
+            <style>
+            .site-title, .site-description {
+            display:none;
+            }
+            wp-element-button {
+                background-color: "cfcfcf" !important;
+                border: none;
+                color: black;
+            }
+            </style>
+            ';
+            break;
+        case "normal":
+        case "ohio":
         case "tailOnly":
+            break;
+        case "nudges":
+            wp_enqueue_style("creative", "https://creative-nudges.com/wp-content/plugins/creative-nudges/creative-nudges.css");
+            //            print "
+            //<link rel='stylesheet' href='https://creative-nudges.com/wp-content/plugins/creative-nudges/creative-nudges.css' media='all'
+            //           id='creative-nudges.css' ></link>
+            //";
             break;
         case "validate":
             $_GET['nohead'] = "true"; // force no header
             break;
         default:
-            print "<p>E#1302 Unknown switchName of '$switchName' in header.php</p> ";
+            print "<p>E#1302 Unknown switchName of '$switchName' in header.php xxxxx</p> ";
             break;
     }
     // end f ( $switchName == "eriepittsburgh" )
@@ -163,11 +178,11 @@ div.eriemenu {
         min-height: 26px;
     }
     .nav-menu .current_page_item > a,
-    .nav-menu .current_page_ancestor > a, .
-    nav-menu .current-menu-item > a,
+    .nav-menu .current_page_ancestor > a,
+    .nav-menu .current-menu-item > a,
     .nav-menu .current-menu-ancestor > a {
-        color: $rrw_trail_menu_footer_background_color!important;
-        background-color: $rrw_trail_menu_footer_text_color;
+        color: $rrw_trail_menu_footer_text_color!important;
+        background-color: $rrw_trail_menu_footer_background_color;
     }
     .site-footer a {
         color: $rrw_trail_menu_footer_text_color!important;
@@ -175,6 +190,7 @@ div.eriemenu {
 </style>
 <!-- end themes style section based on url and customizations -->
 <script src='https://pictures.shaw-weil.com/randomTrailPicture.js'></script>
+
 </head>
 <body <?php body_class(); ?>
     <div id='page' class='hfeed site'>
@@ -203,16 +219,18 @@ div.eriemenu {
     }
     $rightRandomImage = ""; // the various switch routines will set this if they want it
     $searchbox = "";        // the various switch routines will set this if they want it
-    if ($mobile && (0 != strcmp("dino1", $switchName))) {
+    if ($mobile && (0 != strcmp("dino", $switchName))) {
         print "<!-- mobile devices do not get the images -->\n";
     } else {
-        print "<!--  ------------------------------------------------------------- $switchName ----------------------------   heading display -->";
+        //       print "<!--  ------------------------------------------------------------- $switchName ----------------------------   heading display -->\n";
         $blogInfoDescription = get_bloginfo('description');
         $LogoImage = get_header_image();           // default logo image used by serval switches below
-
+        // --------------------------------------------------------------------------------------- header code
         switch ($switchName) {
             case "nudges":
             case "demo7":
+                print "<!-- no header displayed -->";
+                break;
                 $imageSource = "/wp-content/themes/roys-header/images/jus-sayin-slanted-logo.png";
                 print "
             <!-- start div id='rrw_header_menu_block_1' -->
@@ -299,7 +317,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 		<area href="/projects/" shape="rect" coords="192, 0, 360, 44"
 				alt="Link to projects page">
 		<area href="/grants/" shape="rect" coords="378, 0, 545, 44"
-				alt="Link to ho to make a grant page">
+				alt="Link to how to make a grant page">
 		<area href="/helpus/" shape="rect" coords="566, 0, 735, 44"
 				alt="Link to How to make a contribution page">
 		</map>
@@ -408,15 +426,20 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         <img src="https://tommarellogc.com/wp-content/uploads/2014/09/tommarelloLogo.jpg" >
 ';
                 break;
-            case "dino":
+
+            case "dino1";
                 $title = wp_title("", false);
-                print "<div id=dinoMenu class='dinoMenu' > <!-- entire space is orange -->
-            <table class='dinoMenu' style='table-layout: auto;' >
-       <tr class='dinoMenu' >
-            <td><span class='site-title' > $title </span><br /><br />\n";
+                print "<div id=dinoMenu class='menucolor' > <!-- entire space is orange -->
+            <table class='menucolor' style='table-layout: auto;' >
+       <tr class='menucolor' >
+            <td class='site-title menucolor' > $title <br /><br />\n";
                 $siteDire = "/home/pillowan/www-dinomitedays";
-                $content = file_get_contents("$siteDire/wp-content/plugins/dinomitedays/footer_dino1.php");
-                print " $content </td>
+                print wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'menu_class' => 'nav-menu menucolor',
+                    'echo' => false
+                ));
+                print "</td>
             ";
                 if ($mobile) { // on mobile devices do not display the logo
                     print "
@@ -424,7 +447,29 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             ";
                 } else {
                     print "
-        <td class='dinoMenu' >
+        <td class='menucolor' >
+            <a href='/' ><img src='/wp-content/themes/roys-header/images/dinomiteLogo-85.png'
+             > </a>
+        </td>";
+                }
+                print "
+     </tr></table>
+  </div>
+";
+                break;
+            case "dino":
+                $title = wp_title("", false);
+                print "<div id=dinoMenu class='menucolor' > <!-- entire space is orange -->
+            <table class='menucolor' style='table-layout: auto;' >
+       <tr class='menucolor' >
+            <td><span class='site-title' > $title </span><br /><br />\</td>n";
+                if ($mobile) { // on mobile devices do not display the logo
+                    print "
+            <td> </td>
+            ";
+                } else {
+                    print "
+        <td class='menucolor' >
             <a href='/' ><img src='/wp-content/themes/roys-header/images/dinomiteLogo-85.png'
              > </a>
         </td>";
@@ -478,6 +523,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <?php
             break;
         case "dino":
+        case "dino1":
         case "clean":
         case "picture":
         case "pictureDev":

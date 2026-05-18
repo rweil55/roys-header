@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "styles": {
+        "elements": {
+            "button": {
+                "color": {
+                    "background": "#17a2b8",
+                    "text": "#ffffff"
+                }
+            }
+        }
+    }
+}

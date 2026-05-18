@@ -14,13 +14,8 @@ global $wpdb;       // word press database object
 
 $rrw_old_in_set_display_errors = ini_set("display_errors", true);
 include_once(ABSPATH . 'wp-admin/includes/plugin.php');
-$rrw_trail_menu_footer_background_color = get_option(
-    "freewheelingeasy_menu_footer_background_color",
-    "black"
-);
-$rrw_trail_menu_footer_text_color = get_option(
-    "freewheelingeasy_menu_footer_text_color"
-);
+$rrw_trail_menu_footer_background_color = get_option("freewheelingeasy_menu_footer_background_color", "black");
+$rrw_trail_menu_footer_text_color = get_option("freewheelingeasy_menu_footer_text_color", "green");
 $rrw_trail_footerCopyright = get_option("rrwtheme-footer-copyright", "white");
 print "
 </div>  <!-- #main -->
@@ -58,17 +53,32 @@ switch ($switchName) {
             $rrw_trail_menu_footer_text_color
         );
         break;
-    case "dino":
     case "dino1":
+        print wp_nav_menu(array(
+            'theme_location' => 'primary',
+            'menu_class' => 'nav-menu menucolor',
+            'echo' => false
+        ));
+        print "<p class='dinoMenu'> &nbsp; </p>";
+        break;
+    case "dino":
         rrwTrail_footer_dino(
             $rrw_trail_menu_footer_background_color,
             $rrw_trail_menu_footer_text_color
         );
+        break;
     case "clean":
     case "validate":
         print "<!-- no footer displayed -->";
         break;
     case "nudges":
+        print '
+            [ <a href="/contact/">Contact Us</a> ]
+            [ <a href="/privacy-policy/"> Privacy Policy </a> ]
+            [ Copyright ]
+            [ Site Map ]';
+        break;
+
     case "demo7":
         // hide all entry titles, each page will have its one editable title
         print "<script>

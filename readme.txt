@@ -2,7 +2,7 @@ Roys Trail Header theme
 
 *   Sets up a header with a logo in the left, sitename/tagline in the middle,
 
-*       and a series of randpm selected photos on the right.
+*       and a series of random selected photos on the right.
 
 *  The main content is one column wide, full screen width
 
@@ -10,11 +10,11 @@ Roys Trail Header theme
 
 *       freewheeling or Roy Weil credit, webmaster feedback
 
-*		the copyright notice can be changed in "appearance" "coutomizer", "site idennity"
+*		the copyright notice can be changed in "appearance" "customize", "site identity"
 
-*  File Manger will be modified to allow access only to the upload folder Theme expects the following stuff and may fail if they are not present:  *  A logo file in "Apperance", "Custimize", "Header Image"            height should match height of the random mages
+*  File Manger will be modified to allow access only to the upload folder Theme expects the following stuff and may fail if they are not present:  *  A logo file in "Appearance", "Customize", "Header Image"            height should match height of the random mages
 
-		   may also be a small file that matchhes the header backgound color to eliminate logo
+		   may also be a small file that matches the header background color to eliminate logo
 
  *	A website title in "Appearance", "customize", "Site Identity"
 
@@ -24,9 +24,9 @@ Roys Trail Header theme
 
 		   will be displayed full size
 
- 		   If an image name matches a page name then that photo will used tather than a random one
+ 		   If an image name matches a page name then that photo will used rather than a random one
 
- *  A page with the a slug/link of webmaster-feedbaxk
+ *  A page with the a slug/link of webmaster-feedback
 
 
 
@@ -50,7 +50,7 @@ Roys Trail Header theme
 
 == 1.39-40 ==
 
-	fix			widthed of google maps on cell phones
+	fix			width of google maps on cell phones
 tailOnly
 == 1.35-37 ==
 
@@ -330,7 +330,7 @@ tailOnly
 
 	=1.1.76 =
 
-		Update: caused copywrite notice to be sticky over theme upgrades
+		Update: caused copyright notice to be sticky over theme upgrades
 
 	=1.1.75 =
 
