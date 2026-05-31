@@ -6,7 +6,6 @@ require_once "display_tables_class.php";
 require_once "freewheelingeasy-wpdpExtra.php";
 require_once "rrw_util_inc.php";
 require_once "rrwParam.php";
-require_once "theme_update_check.php";
 // the following is called directly durning the processing of // https::pictures...
 // roys-picture-processing/searchBox.php
 // cause downstream tasks to use this trailid i.e freeWheelParam::String("trailid") pickups the _cookie
@@ -140,11 +139,15 @@ function rrw_trail_example_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'rrw_trail_example_enqueue_styles');
 // 	*******************************  check for updates to the roy-header theme
-require_once "theme_update_check.php";
-$MyUpdateChecker = new ThemeUpdateChecker(
-    'roys-header',
-    'https://pluginserver.royweil.com/roys-header.php'
-    //  'https://kernl.us/api/v1/theme-updates/58324bb2bdf1417153c8e59e/'
+
+require 'plugin-update-checker/plugin-update-checker.php';
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://pluginserver.royweil.com/roys-header.php',
+    __FILE__, //Full path to the main plugin file or functions.php.
+    'roys-header'
 );
 // *******************************  Broken like checker youtube api
 add_filter('blc_youtube_api_key', function ($api_key) {

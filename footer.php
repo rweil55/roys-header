@@ -54,12 +54,19 @@ switch ($switchName) {
         );
         break;
     case "dino1":
-        print wp_nav_menu(array(
+        $menu2 = wp_nav_menu(array(
             'theme_location' => 'primary',
             'menu_class' => 'nav-menu menucolor',
             'echo' => false
         ));
-        print "<p class='dinoMenu'> &nbsp; </p>";
+        $menu2 = substr($menu2, 0, strlen($menu2) - 6);    // remove trailing </div> from end of menu
+        print "$menu2<span class='dino-footer dino-footer-copyright'>copyright <a href='https://carnegiemnh.org/'>Carnegie Museum of Natural History</a> &nbsp;
+					Hosted by the book <em><a href='https://freewheelingeasy.com/'>FreewheelingEasy in Western Pennsylvania</a></em> &nbsp;
+					<a href='/feedback/'>Contact Us</a>
+					</span>
+                </div>
+            </div>
+        ";
         break;
     case "dino":
         rrwTrail_footer_dino(

@@ -116,11 +116,7 @@ div.eriemenu {
             break;
         case "dino":
         case "dino1":
-            wp_enqueue_style("dino", "https://dinomitedays.org/wp-content/plugins/dinomitedays/dinomitedays.css"); /*
-            print "
-<link rel='stylesheet' href='https://dinomitedays.org/wp-content/plugins/dinomitedays/dinomitedays.css' media='all'
-            id='dinomitedays.css' ></link>
-"; */
+            wp_enqueue_style("dino", "https://dinomitedays.org/wp-content/plugins/dinomitedays/dinomitedays.css"); 
             break;
         case "theyWorking":
         case "tommarellogc":
