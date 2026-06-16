@@ -15,7 +15,7 @@ global $wpdb;       // word press database object
 $rrw_old_in_set_display_errors = ini_set("display_errors", true);
 include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 $rrw_trail_menu_footer_background_color = get_option("freewheelingeasy_menu_footer_background_color", "black");
-$rrw_trail_menu_footer_text_color = get_option("freewheelingeasy_menu_footer_text_color", "green");
+$rrw_trail_menu_footer_text_color = get_option("freewheelingeasy_menu_footer_text_color", "white");
 $rrw_trail_footerCopyright = get_option("rrwtheme-footer-copyright", "white");
 print "
 </div>  <!-- #main -->
@@ -37,7 +37,7 @@ if (array_key_exists("nohead", $_GET)) {
 switch ($switchName) {
     case "tailOnly":
         if (is_user_logged_in()) {
-            print "<!-- Option is tailOnly with a looged in user. therefore on display -->";
+            print "<!-- tailonly with a logged in user. therefore on display -->";
             break; // if  user logged in no footer, else fall thru to display
         }
     case "eriepittsburgh":
@@ -53,7 +53,7 @@ switch ($switchName) {
             $rrw_trail_menu_footer_text_color
         );
         break;
-    case "dino1":
+    case "dino":
         $menu2 = wp_nav_menu(array(
             'theme_location' => 'primary',
             'menu_class' => 'nav-menu menucolor',
@@ -68,36 +68,21 @@ switch ($switchName) {
             </div>
         ";
         break;
-    case "dino":
-        rrwTrail_footer_dino(
-            $rrw_trail_menu_footer_background_color,
-            $rrw_trail_menu_footer_text_color
-        );
-        break;
     case "clean":
     case "validate":
         print "<!-- no footer displayed -->";
         break;
     case "nudges":
-        print '
-            [ <a href="/contact/">Contact Us</a> ]
-            [ <a href="/privacy-policy/"> Privacy Policy </a> ]
-            [ Copyright ]
-            [ Site Map ]';
-        break;
-
-    case "demo7":
-        // hide all entry titles, each page will have its one editable title
-        print "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    var titles = document.getElementsByClassName('entry-title');
-                    for (var i = 0; i < titles.length; i++) {
-                        titles[i].style.display = 'none';
-                    }
-                }
-                );
-            </script>
-            ";
+        print '<span style="background-color:#a1dcf7;">
+        <a href="home-2" >HOME</a>  &nbsp; &nbsp; &nbsp;
+        <a href="faq" >FAQ</a>  &nbsp; &nbsp; &nbsp;
+        SHIPPING INFORMATION  &nbsp; &nbsp; &nbsp;
+        <a href="contact" >CONTACT US</a>  &nbsp; &nbsp; &nbsp;
+        <a href="privacy-policy/" >PRIVACY POLICY</a>  &nbsp; &nbsp; &nbsp;
+        COPYRIGHT &nbsp; &nbsp; &nbsp;
+        SITE MAP
+        </span>';
+        $wantWordPressFooter = false;
         break;
     case "theyWorking":
         rrwTrail_footer_theyWorking(
@@ -109,7 +94,7 @@ switch ($switchName) {
         print rrwHeaderMenu();
         break;
     default:
-        print "<p>E#1303 Unkown switchName of '$switchName' in footer.php</p> ";
+        print "<p>E#1303 Unknown switchName of '$switchName' in footer.php</p> ";
         break;
 }
 print "
@@ -126,6 +111,7 @@ function rrwTrail_footer_Picture($backgroundcolor, $rrw_trail_menu_footer_text_c
             .site-footer {
             text-align:left;
             }
+        theyWorking
             .site-footer a {
             color:black;
             }

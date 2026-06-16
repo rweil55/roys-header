@@ -289,7 +289,7 @@ function rrw_trail_SetSwitchName()
     global $eol;
     $siteUrl = site_url();
     if (strpos($siteUrl, "dinomitedays") !== false)
-        $switchName = "dino1";
+        $switchName = "dino";
     elseif (strpos($siteUrl, "creative") !== false)
         $switchName = "nudges";
     elseif (strpos($siteUrl, "edit.shaw-weil") !== false)
@@ -319,6 +319,17 @@ function rrw_trail_SetSwitchName()
         $switchName = $switch_parameter;
     return $switchName;
 }
+function rrw_navMenu()
+{
+    $rrw_trail_menuText = wp_nav_menu(array(
+        'theme_location' => 'primary',
+        'container' => false,
+        'echo' => false,
+        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+    ));
+    return $rrw_trail_menu;
+}
+add_shortcode("creative-nudges-menu", "rrw_navMenu");
 /*
     //  ************************************ some found code that might be usefull
 

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 /*
  * The Header template for our theme
@@ -21,11 +22,10 @@
 $debugSwitch = false;
 $eol = "<br />\n";
 //if ( current_user_can( "edit_users" ) ) {
-ini_set("display_errors", "1");
-error_reporting(E_ALL);
+ini_set("display_errors", true);
+$OriginalErrorReporting = error_reporting(E_ALL);
 //} // else no auto debug
 ?>
-<!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>wp-element-buttoncreative
 <![endif]-->
@@ -55,9 +55,9 @@ error_reporting(E_ALL);
     print "<!-- calling wp_head() <br />$eol -->\n  ";
     wp_head();
     print "<!-- after calling wp_head() <br />$eol -->\n  ";
-    $rrw_trail_menu_footer_background_color = get_option("freewheelingeasy_menu_footer_background_color", "black");
+    $rrw_trail_menu_footer_background_color = get_option("freewheelingeasy_menu_footer_background_color", "white");
     $rrw_trail_menu_footer_text_color =
-        get_option("freewheelingeasy_menu_footer_text_color", "white");
+        get_option("freewheelingeasy_menu_footer_text_color", "black");
     // switchname used to select different header based on url
     print "
 <style>
@@ -87,7 +87,7 @@ div.eriemenu {
     top:45px;
 	left: 125px;
 	height: 20px;
-# border: 2px solid #73AD21;
+/*  border: 2px solid #73AD21;  */
 	z-index: 100;
 }
 /* Mobile devices */
@@ -115,11 +115,11 @@ div.eriemenu {
             wp_enqueue_style("pictures", "https://pictures.shaw-weil.com/wp-content/plugins/roys-picture-processing/pictures.css");
             break;
         case "dino":
-        case "dino1":
-            wp_enqueue_style("dino", "https://dinomitedays.org/wp-content/plugins/dinomitedays/dinomitedays.css"); 
+            wp_enqueue_style("dino", "https://dinomitedays.org/wp-content/plugins/dinomitedays/dinomitedays.css");
             break;
         case "theyWorking":
         case "tommarellogc":
+        case "normal":
         case "clean":
         case "demo7":
         case "edit":
@@ -138,9 +138,6 @@ div.eriemenu {
             ';
             break;
         case "normal":
-        case "ohio":
-        case "tailOnly":
-            break;
         case "nudges":
             wp_enqueue_style("creative", "https://creative-nudges.com/wp-content/plugins/creative-nudges/creative-nudges.css");
             //            print "
@@ -148,11 +145,14 @@ div.eriemenu {
             //           id='creative-nudges.css' ></link>
             //";
             break;
+        case "ohio";
+        case "tailOnly":
+            break;
         case "validate":
             $_GET['nohead'] = "true"; // force no header
             break;
         default:
-            print "<p>E#1302 Unknown switchName of '$switchName' in header.php xxxxx</p> ";
+            print "<p>E#1302 Unknown switchName of '$switchName' in header.php</p> ";
             break;
     }
     // end f ( $switchName == "eriepittsburgh" )
@@ -188,11 +188,14 @@ div.eriemenu {
 <script src='https://pictures.shaw-weil.com/randomTrailPicture.js'></script>
 
 </head>
-<body <?php body_class(); ?>
+<body ";
+    print body_class();
+    print "
     <div id='page' class='hfeed site'>
         <!--  ==================================================================================================== header -->
         <header id='masthead' style='text-align:left;'>
-            <a class='screen-reader-text skip-link' href='#content' aria-label='";
+            <a class='screen-reader-text skip-link' href='#content' aria-label='
+";
     esc_attr_e(' Skip to content', 'twentythirteen');
     print "' title='";
     esc_attr_e('Skip to content', 'twentythirteen');
@@ -224,7 +227,6 @@ div.eriemenu {
         // --------------------------------------------------------------------------------------- header code
         switch ($switchName) {
             case "nudges":
-            case "demo7":
                 print "<!-- no header displayed -->";
                 break;
                 $imageSource = "/wp-content/themes/roys-header/images/jus-sayin-slanted-logo.png";
@@ -356,7 +358,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             // -------------------------------------------------------------------------------------------
             case "normal":
             case "linkup":
-                // build sme variables
+                // build some variables
                 $rightRandomImage = "<div id='randomTrailImageGoesHereDiv'>one moment while we fetch a trail picture
                 <script>
                     randomPicFunction('randomTrailImageGoesHereDiv');
@@ -381,7 +383,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <table id='rrw_header_mastheadPhotos' style='min-height: 30px;
             border: 2px; ' role='presentation'>
         <tr>
-            <td>
+            <td><a class='home-link site-description' href='$siteUrl' title='$homeName' rel='home'>
                      <img src='$LogoImage' alt='$homeName logo ' class='alignnone size-full' > </a>
             </td>
             <td style='text-align:center; border:thin;'>
@@ -423,12 +425,12 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 ';
                 break;
 
-            case "dino1";
+            case "dino":
                 $title = wp_title("", false);
-                print "<div id=dinoMenu class='menucolor' > <!-- entire space is orange -->
-            <table class='menucolor' style='table-layout: auto;' >
-       <tr class='menucolor' >
-            <td class='site-title menucolor' > $title <br /><br />\n";
+                print "<div id=dinoMenu class='dinoMenu' > <!-- entire space is orange -->
+            <table class='dinoMenu' style='table-layout: auto;' >
+       <tr class='dinoMenu' >
+            <td><span class='site-title' > $title </span><br /><br />\n";
                 $siteDire = "/home/pillowan/www-dinomitedays";
                 print wp_nav_menu(array(
                     'theme_location' => 'primary',
@@ -443,29 +445,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             ";
                 } else {
                     print "
-        <td class='menucolor' >
-            <a href='/' ><img src='/wp-content/themes/roys-header/images/dinomiteLogo-85.png'
-             > </a>
-        </td>";
-                }
-                print "
-     </tr></table>
-  </div>
-";
-                break;
-            case "dino":
-                $title = wp_title("", false);
-                print "<div id=dinoMenu class='menucolor' > <!-- entire space is orange -->
-            <table class='menucolor' style='table-layout: auto;' >
-       <tr class='menucolor' >
-            <td><span class='site-title' > $title </span><br /><br />\</td>n";
-                if ($mobile) { // on mobile devices do not display the logo
-                    print "
-            <td> </td>
-            ";
-                } else {
-                    print "
-        <td class='menucolor' >
+        <td class='dinoMenu' >
             <a href='/' ><img src='/wp-content/themes/roys-header/images/dinomiteLogo-85.png'
              > </a>
         </td>";
@@ -488,7 +468,123 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     switch ($switchName) {
         case "eriepittsburgh": // --------------------------------------------
         case "nudges":
-        case "demo7":
+            $spaces80 = str_repeat("&nbsp;", 80);
+            print '
+            <style>
+            .entry-title {
+                display:none;
+            }
+        </style>';
+            $pageTexts = array(
+                "about" => "70|About Creative Nudges",
+                "booklet" => "90|<span class='creative-nudge-page-header'>Print the booklet on your own printer ’</span><br><br>",
+                "booklet-frontpage" => "70|<p class='creative-nudge-page-header'>Instructions - Front Page of booklet.</p>",
+                "canceled" => "70|<p class='creative-nudge-page-header'>Order has been cancelled.</p>",
+                "contact" => "70|<p class='creative-nudge-page-header'>Contact Us</p>",
+                "edit-comment" => "70|<p class='creative-nudge-page-header'>Edit Comment</p>",
+                "edit1" => "70|<p class='creative-nudge-page-header'>Edit Comment</p>",
+                "faq" => "70|<p class='creative-nudge-page-header'>Frequently Ask Questions</p>",
+                "home" => "|",
+                "how-to-use" => "210|<span class='creative-nudge-page-header'>Sometimes ya get stuck in a creative rut and<br>
+                                    it takes a li’l nudge to get out, jus’ sayin’</span><br><br>
+                    <p class='creative-nudge-page-text'>These creative nudge cards capture wisdom and experience about creativity and design, especially in software. This should should all be common sense, but it is often are not recognized as such. <br><br></p>
+                    <p class='creative-nudge-page-text'>Echoing  [Lampson 83], “these are not novel (with a few exceptions), laws of system design, precisely formulated, consistent, always appropriate, approved by all the leading experts, or guaranteed to work.  They are just hints”.  So these are not recipes, but suggestions about ways to think about your problems that may give you new insights.
+                    </p>",
+                "instructions" => "70|<p class='creative-nudge-page-header'>Internal Instructions</p>",
+                "unstructions-booklet-2" => "70|<p class='creative-nudge-page-header'>How to create the Instruction Booklet files</p>",
+                "instructions-production-11-25" => "70|<p class='creative-nudge-page-header'>instructions-production-11-25</p>",
+                "not-yet" => "70|<p class='creative-nudge-page-header'>Page not built. Please contact with the link to this page</p>",
+                "onecard" => "70|<p class='creative-nudge-page-header'> Display just one card</p>",
+                "order-placed" => "70|<p class='creative-nudge-page-header'>Order has been successfully placed.</p>",
+                "faq" => "70|<p class='creative-nudge-page-header'>Frequently Ask Questions</p>",
+                "faq" => "70|<p class='creative-nudge-page-header'>Frequently Ask Questions</p>",
+                "privacy-policy-2" => "144|<p class='creative-nudge-page-header'>Privacy is important to us, and we want you to understand what data we collect and how we use it.</p>",
+                "privacy-policy" => "90|<p class='creative-nudge-page-header'>Privacy is important to us, and we want you to understand what data we collect and how we use it.</p>",
+                "references" => "160|<span class='creative-nudge-page-header'><br>if I have seen further [than others], it is by standing on the shoulders of giants.
+                                        <br> $spaces80-- Isaac Newton><br></span>
+                                <p class=\"creative-nudge-page-text\">Just as Newton’s aphorism has roots at least as far back as the 12th century, many of the nudges on these cards quote or adapt ideas that I learned from others.  In the cases where I can identify that influence, I have attributed it.<br><br>
+                                        This page provides those sources, keyed to the attributions on the cards.</p>
+                </p>",
+                "store" => "|",
+            );
+            $logoHeightArray = array(
+                "about" => 70,
+                "booklet" => 90,
+                "edit-comment" => 70,
+                "contact" => 70,
+                "home" => 144,
+                "how-to-use" => 210,
+                "privacy-policy-2" => 144,
+                "privacy-policy" => 90,
+                "references" => 160,
+                "store" => 144
+            );
+            $pagename = $_SERVER['REQUEST_URI'];
+            $pagename = str_replace("https://creative-nudges.com/", "", $pagename);
+            $iiSearch = strpos($pagename, "?");
+            if (false !== $iiSearch) {
+                $pagename = substr($pagename, 0, $iiSearch);
+            }
+            $pagename = str_replace("/", "", $pagename);
+            if (empty($pagename))
+                return "";
+            if (! array_key_exists($pagename, $pageTexts)) {
+                $pagetext = "E#2870 Error missing page text for $pagename, need to add to pageTexts array in header.php";
+                $logoHeight = 70;
+            } else {
+                list($logoHeight, $pagetext) = explode("|", $pageTexts[$pagename]);
+                //              $pagetext = $pageTexts[$pagename];
+                //             $logoHeight = $logoHeightArray[$pagename];
+            }
+            print '
+<style>
+     .entry-title {
+            display:none;
+        }
+    .creative-nudge-left-pos-minus-10 {
+        position: relative;
+        left: -10px;
+    }
+    .creative-nudge-page-header {
+        display:block;
+        font-size: larger;
+        font-weight: bold;
+        text-align: center;
+        margin-right: 100px
+}
+    .creative-nudge-page-text {
+       padding-left: 40px;
+        padding-right: 100px;
+/*      border: 2px solid green;  */
+}
+        </style>';
+            if (!empty($pagetext)) {
+                print '
+            <table style="width:100%;" >
+            <tr width="100%" style="width:100%;">
+                    <td align="left" rowspan="2" style="float:left; " >
+                       <img height="' . "$logoHeight" . 'px" width="auto"   src="https://creative-nudges.com/wp-content/uploads/2026/04/auxpagestopleft.png" alt="Creative Nudges Logo">
+                    </td>
+                    <td align="center">
+                        &nbsp;
+                    </td>
+                    <td style="text-align:right;" >
+                        ';
+                $rrw_trail_menuText = wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'menu_class' => 'nav-menu menucolor',
+                    'echo' => false
+                ));
+                echo $rrw_trail_menuText;
+                print "</td></tr>
+                <tr><td>&nbsp;</td><td class=\"creative-nudge-page-text\" colspan=\"2\" >
+                    <span class=\"creative-nudge-page-text\"> $pagetext </span>
+                    </td></tr>
+            </table>
+";
+            }
+            break;
+        case "eriepittsburgh": // --------------------------------------------
             // eriepittsburgh has menu buried i the swish
     ?>
             <div id="navbar" class="eriemenu  menucolor" style='z-index:1;'>
@@ -519,7 +615,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <?php
             break;
         case "dino":
-        case "dino1":
         case "clean":
         case "picture":
         case "pictureDev":
@@ -536,7 +631,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         case "tommarellogc":
         case "ohio":
             print rrwHeaderMenu();
-            // code moved to subroutine, o that footer can show menu as well
+            // code moved to subroutine, so that footer can show menu as well
             break;
         default:
             print "<p>E#1305 Unknown switchName of '$switchName' in header.php</p> ";
@@ -551,6 +646,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <!--  ===== last line -2 of header.php ============================================ main content -->
     <div id="main" class="site-main">
         <?php
+        error_reporting($OriginalErrorReporting); // restore original error reporting
         function rrwHeaderMenu()
         {
             $msg = "";
@@ -567,19 +663,24 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                                     <?php _e('Skip to content', 'twentythirteen'); ?>
                                 </a>";
             $rrw_trail_menuText = wp_nav_menu(array(
-                'theme_location' => 'primary',
-                'menu_class' => 'nav-menu menucolor',
-                'echo' => false
+                "theme_location" => "primary",
+                "menu_class" => "nav-menu menucolor",
+                "echo" => false
             ));
-            $msg .= $rrw_trail_menuText;
-            $msg .= "
+            print $rrw_trail_menuText . "
                             </td>
                         </tr>
                     </table>
                 </nav>
+    </div>      <!-- id=navbar  -->
+                        <!-- =====================================  end #navbar -->
             </div>
-            <!-- id=navbar  -->
+            </header>
+            </div>
+            <!-- end dive id='page' -->
+            <!-- #masthead -->
+            <!--  ===== last line -2 of header.php ============================================ main content -->
+            <div id='main' class='site-main'>
             ";
             return $msg;
         }
-        ?>

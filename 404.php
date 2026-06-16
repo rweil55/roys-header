@@ -18,13 +18,43 @@ switch ($switchName) {
     case "nudges":
         LookForCreative();
         break;
+    case "dino":
+        LookForDino();
+        break;
     default:
         DisplayNormal404();
         break;
 }
 return;
-
-
+function LookForDino()
+{
+    global $wpdbExtra;
+    get_header();
+    $url = $_SERVER["REQUEST_URI"];
+?>
+    <div id="primary" class="content-area">
+        <div id="content" class="site-content" role="main">
+            <header class="page-header">
+                <h1 class="rrw-title">
+                    <?php _e("$url was not Found on site ", 'twentythirteen'); ?>
+                </h1>
+            </header>
+            <div class="page-wrapper">
+                <div class="dino-page-about dino-page-content">
+                    <?php
+                    print "<h2>How about choosing one of these dinosaurs instead?</h2>";
+                    $sqlAllDinos = dinomitedays_misc_pages::dinoSglSelect . $wpdbExtra->dinosaurs . " order by dinoName ";
+                    print dinomitedays_misc_pages::gridDisplay($sqlAllDinos, "nameOnly");
+                    ?>
+                    <div id="wb404" />
+                    <script src="https://archive.org/web/wb404.js"> </script>
+                </div> <!-- .wb404 -->
+            </div> <!-- .dino-page-about .dino-page-content -->
+        </div> <!-- .page-wrapper -->
+    </div> <!-- site-content -->
+    </div> <!-- #primary -->
+<?php get_footer();
+}
 function LookForTrail(): void
 {
     global $eol, $wpdb, $table_prefix, $wpdbExtra, $debug404;

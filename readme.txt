@@ -12,7 +12,7 @@ Roys Trail Header theme
 
 *		the copyright notice can be changed in "appearance" "customize", "site identity"
 
-*  File Manger will be modified to allow access only to the upload folder Theme expects the following stuff and may fail if they are not present:  *  A logo file in "Appearance", "Customize", "Header Image"            height should match height of the random mages
+*  File Manger will be modified to allow access only to the upload folder Theme expects the following stuff and may fail if they are not present:  *  A logo file in "Apperance", "Custimize", "Header Image"            height should match height of the random mages
 
 		   may also be a small file that matches the header background color to eliminate logo
 
