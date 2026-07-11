@@ -37,10 +37,6 @@ div#sfsi_holder {
 styles having to do with the Erie pittsburgh header swish  are located in the header.php routine
 */
 body {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
     font-size: 14px;
 }
 
