@@ -327,8 +327,8 @@ function rrw_navMenu()
         'echo' => false,
         'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
     ));
-    return $rrw_trail_menu;
-}
+    return $rrw_trail_menuText;
+} // end rrw_trail_menu
 add_shortcode("creative-nudges-menu", "rrw_navMenu");
 /*
     //  ************************************ some found code that might be usefull

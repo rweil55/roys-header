@@ -20,6 +20,8 @@
  *
  */
 $debugSwitch = false;
+$debugNormal = false;
+$debugProgress = false;
 $eol = "<br />\n";
 //if ( current_user_can( "edit_users" ) ) {
 ini_set("display_errors", true);
@@ -37,7 +39,7 @@ $OriginalErrorReporting = error_reporting(E_ALL);
 <!--<![endif]-->
 
 <head>
-    <!-- page created by header.php try #8  ---------------------------------------- -->
+    <!-- I#1301 -- page created by header.php try #13---------------------------------------- -->
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
     <title>
@@ -52,9 +54,9 @@ $OriginalErrorReporting = error_reporting(E_ALL);
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
     <?php
-    print "<!-- calling wp_head() <br />$eol -->\n  ";
+    if ($debugProgress) print "I#1396 calling wp_head() <br />$eol -->\n  ";
     wp_head();
-    print "<!-- after calling wp_head() <br />$eol -->\n  ";
+    if ($debugProgress) print "I#1307 after calling wp_head() <br />$eol -->\n  ";
     $rrw_trail_menu_footer_background_color = get_option("freewheelingeasy_menu_footer_background_color", "white");
     $rrw_trail_menu_footer_text_color =
         get_option("freewheelingeasy_menu_footer_text_color", "black");
@@ -66,7 +68,7 @@ $OriginalErrorReporting = error_reporting(E_ALL);
 }
 </style>";
     $switchName = rrw_trail_SetSwitchName();        // used by serval switches below
-    print "\n<!-- themes style section based on url and customizations  - $switchName ---------------------------------- -->\n";
+    if ($debugProgress) print "\n-- I#1308 themes style section based on url and customizations  - $switchName ---------------------------------- -->$eol";
     switch ($switchName) { // set styles base on switch
         case "eriepittsburgh":
             print "
@@ -119,6 +121,8 @@ div.eriemenu {
             break;
         case "theyWorking":
         case "tommarellogc":
+            $rrw_trail_menu_footer_text_color = "white";
+            break;
         case "normal":
         case "clean":
         case "demo7":
@@ -126,9 +130,7 @@ div.eriemenu {
         case "linkup":
             print '
             <style>
-            .site-title, .site-description {
-            display:none;
-            }
+
             wp-element-button {
                 background-color: "cfcfcf" !important;
                 border: none;
@@ -137,7 +139,7 @@ div.eriemenu {
             </style>
             ';
             break;
-        case "normal":
+
         case "nudges":
             wp_enqueue_style("creative", "https://creative-nudges.com/wp-content/plugins/creative-nudges/creative-nudges.css");
             //            print "
@@ -155,7 +157,7 @@ div.eriemenu {
             print "<p>E#1302 Unknown switchName of '$switchName' in header.php</p> ";
             break;
     }
-    // end f ( $switchName == "eriepittsburgh" )
+    // end if ( $switchName  )
     print "
 <style>
 .menucolor {
@@ -190,7 +192,7 @@ div.eriemenu {
 </head>
 <body ";
     print body_class();
-    print "
+    print " >
     <div id='page' class='hfeed site'>
         <!--  ==================================================================================================== header -->
         <header id='masthead' style='text-align:left;'>
@@ -221,7 +223,7 @@ div.eriemenu {
     if ($mobile && (0 != strcmp("dino", $switchName))) {
         print "<!-- mobile devices do not get the images -->\n";
     } else {
-        //       print "<!--  ------------------------------------------------------------- $switchName ----------------------------   heading display -->\n";
+        if ($debugProgress) print "I#1308  ------------------------------------------------------------- $switchName ----------------------------   heading display -->\n";
         $blogInfoDescription = get_bloginfo('description');
         $LogoImage = get_header_image();           // default logo image used by serval switches below
         // --------------------------------------------------------------------------------------- header code
@@ -229,6 +231,7 @@ div.eriemenu {
             case "nudges":
                 print "<!-- no header displayed -->";
                 break;
+            /*
                 $imageSource = "/wp-content/themes/roys-header/images/jus-sayin-slanted-logo.png";
                 print "
             <!-- start div id='rrw_header_menu_block_1' -->
@@ -253,6 +256,7 @@ div.eriemenu {
             <!-- end /div id='rrw_header_menu_block_1' -->
     ";
                 break;
+            */
             case "eriepittsburgh": // -------------------------------------------- header erie
                 $imageSource = get_bloginfo('stylesheet_directory') . "/images/cropped-swishlogo.jpg";
                 print "
@@ -374,14 +378,14 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 </style>
 ";
                 }
-                print "
-<div id='rrw_header_menu_block'>
-    ";
+                if ($debugProgress) print "I#1309  in $switchName ----------------------------   heading display -->$eol";
+                print "<div id='rrw_header_menu_block_1309'>";
                 if (false === strpos($LogoImage, "White_48-x-40.png")) {
                     // we have a logo image.
+                    if ($debugProgress) print "I#1311 -----------   logo image display $LogoImage -->$eol";
                     print "
     <table id='rrw_header_mastheadPhotos' style='min-height: 30px;
-            border: 2px; ' role='presentation'>
+                        border: 2px;' >
         <tr>
             <td><a class='home-link site-description' href='$siteUrl' title='$homeName' rel='home'>
                      <img src='$LogoImage' alt='$homeName logo ' class='alignnone size-full' > </a>
@@ -399,6 +403,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
         </tr>
     </table>
     ";
+                    if ($debugProgress) print "I#1312 -----------   end of logo image display -->$eol";
                 } else {
                     // no logo image just the search box
                     print '
@@ -412,7 +417,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     </table>
     ';
                 }
-                print "</div> <!-- end /div id='rrw_header_menu_block_3' -->";
+                print "</div> <!-- end /div id='rrw_header_menu_block_1309' -->";
                 break;
             case "clean":
             case "tailOnly":

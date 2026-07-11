@@ -29,8 +29,31 @@ return;
 function LookForDino()
 {
     global $wpdbExtra;
-    get_header();
+    $rename = array(
+        "maps.htm" => "https://dinomitedays.org/map/",
+        "pictures.htm" => "https://dinomitedays.org/thumbnails/",
+        "pictures_1.htm" => "https://dinomitedays.org/thumbnails/",
+        "pictures_2.htm" => "https://dinomitedays.org/thumbnails/",
+        "pictures_3.htm" => "https://dinomitedays.org/thumbnails/",
+        "pictures_4.htm" => "https://dinomitedays.org/thumbnails/",
+        "pictures_5.htm" => "https://dinomitedays.org/thumbnails/",
+        "steg.htm" => "https://dinomitedays.org/thumbnails/?type=stegosaurus",
+        "steg2.htm" => "https://dinomitedays.org/thumbnails/?type=stegosaurus",
+        "toro.htm" => "https://dinomitedays.org/thumbnails/?type=triceratops",
+        "toro2.htm" => "https://dinomitedays.org/thumbnails/?type=triceratops",
+        "rex.htm" => "https://dinomitedays.org/thumbnails/?type=t-rex",
+    );
     $url = $_SERVER["REQUEST_URI"];
+    $iiSlash = strrpos($url, "/");
+    $lastSegment = substr($url, $iiSlash + 1);
+    //   if ($debug404) print "last segment is $lastSegment $eol";
+    $lastSegment = trim($lastSegment, "/");
+    if (array_key_exists($lastSegment, $rename)) {
+        if (wp_redirect($rename[$lastSegment], 301)) {
+            exit;
+        }
+    }
+    get_header();
 ?>
     <div id="primary" class="content-area">
         <div id="content" class="site-content" role="main">
