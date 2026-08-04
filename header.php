@@ -193,6 +193,7 @@ div.eriemenu {
 <body ";
     print body_class();
 
+    $translated_Skip_to_content =  _e('Skip to content', 'twentythirteen');
     print " >
 
 
@@ -200,12 +201,8 @@ div.eriemenu {
     <div id='page' class='hfeed site'>
         <!--  ==================================================================================================== header -->
         <header id='masthead' style='text-align:left;'>
-            <a class='screen-reader-text skip-link' href='#content' aria-label='
-";
-    esc_attr_e(' Skip to content', 'twentythirteen');
-    print "' title='";
-    esc_attr_e('Skip to content', 'twentythirteen');
-    print "'> </a>\n";
+            <a class='screen-reader-text skip-link' href='#content' aria-label='$translated_Skip_to_content'
+            title='$translated_Skip_to_content' ></a>\n";
     $image = get_header_image();
     $homeName = esc_attr(get_bloginfo('name', 'display'));
     if (array_key_exists("nohead", $_GET))
@@ -374,30 +371,33 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             </div>";
                 $searchbox = get_search_form(array("echo" => false));
                 $siteUrl = site_url();
-                if (empty($blogInfoDescription)) {
-                    // empty description - increase size of title
-                    print "
-<style>
-    .site-title { font-size: 36px;  }
-</style>
-";
-                }
                 if ($debugProgress) print "I#1309  in $switchName ----------------------------   heading display -->$eol";
                 print "<div id='rrw_header_menu_block_1309'>";
                 if (false === strpos($LogoImage, "White_48-x-40.png")) {
                     // we have a logo image.
                     if ($debugProgress) print "I#1311 -----------   logo image display $LogoImage -->$eol";
                     print "
-    <table id='rrw_header_mastheadPhotos' style='min-height: 30px;
-                        border: 2px;' >
+    <table id='rrw_header_mastheadPhotos' style='min-height: 30px; border: 2px;' role='presentation'> >
         <tr>
             <td><a class='home-link site-description' href='$siteUrl' title='$homeName' rel='home'>
                      <img src='$LogoImage' alt='$homeName logo ' class='alignnone size-full' > </a>
             </td>
             <td style='text-align:center; border:thin;'>
                <a href='$siteUrl' title='$homeName' rel='home'>
-                <h1 class='site-title'>$homeName</h1>
-                <h2 class='site-description'> $blogInfoDescription</h2>
+                <h1 class='site-title'>$homeName</h1>";
+                    if (empty($blogInfoDescription)) {
+                        // no second lne for description, so increase the size of the title
+                        print "<script>
+                    fieldSiteTitle = document.getElementById('site-title');
+                    fieldSiteTitle.style.fontSize = '36pt';
+                    </script>
+                    ";
+                    } else {
+                        print "
+                        <h2 class='site-description'> $blogInfoDescription</h2>
+                        ";
+                    }
+                    print "
                 </a>
             </td>
             <td class='site-description'>
@@ -414,7 +414,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <span class="screen-reader-text">Search for:</span>
     <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="searchBox" />
     </label>
-    <input type="submit" class="search-submit" value="Search" />
     </form>
     </td>
     </tr>
@@ -491,7 +490,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                 "contact" => "70|<p class='creative-nudge-page-header'>Contact Us</p>",
                 "edit-comment" => "70|<p class='creative-nudge-page-header'>Edit Comment</p>",
                 "edit1" => "70|<p class='creative-nudge-page-header'>Edit Comment</p>",
-                "faq" => "70|<p class='creative-nudge-page-header'>Frequently Ask Questions</p>",
                 "home" => "|",
                 "how-to-use" => "210|<span class='creative-nudge-page-header'>Sometimes ya get stuck in a creative rut and<br>
                                     it takes a li’l nudge to get out, jus’ sayin’</span><br><br>
@@ -593,32 +591,32 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             break;
         case "eriepittsburgh": // --------------------------------------------
             // eriepittsburgh has menu buried i the swish
-    ?>
-            <div id="navbar" class="eriemenu  menucolor" style='z-index:1;'>
+            $translated_Menu = _e('Skip to content', 'twentythirteen');
+            $translated_Skip_to_content =  _e('Skip to content', 'twentythirteen');
+            print '
+            <div id="navbar" class="eriemenu  menucolor" style="z-index:1;">
                 <nav id="site-navigation" class="navigation main-navigation menucolor">
                     <table role="presentation">
                         <tr>
                             <td>
-                                <h3 class="menu-toggle">
-                                    <?php _e('Menu', 'twentythirteen'); ?>
-                                </h3>
-                                <a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e('Skip to content', 'twentythirteen'); ?>">
-                                    <?php _e('Skip to content', 'twentythirteen'); ?>
-                                </a>
-                                <?php
-                                $rrw_trail_menuText = wp_nav_menu(array(
-                                    'theme_location' => 'primary',
-                                    'menu_class' => 'nav-menu menucolor',
-                                    'echo' => false
-                                ));
-                                echo $rrw_trail_menuText;
-                                ?>
-                            </td>
-                        </tr>
-                    </table>
-                </nav>
-            </div>
-            <!-- id=navbar  -->
+                                <h3 class="menu-toggle"> ' .
+                $translated_Menu .
+                '</h3>
+                            <a class="screen-reader-text skip-link" href="#content" title="' .
+                $translated_Skip_to_content  .
+                " ></a>";
+            $rrw_trail_menuText = wp_nav_menu(array(
+                'theme_location' => 'primary',
+                'menu_class' => 'nav-menu menucolor',
+                'echo' => false
+            ));
+            echo $rrw_trail_menuText;
+    ?>
+            </td>
+            </tr>
+            </table>  // end table in eriepittsburgh header
+            </nav>
+            </div>   <!-- close div id=navbar in erie_pittsburgh header -->
     <?php
             break;
         case "dino":
@@ -658,6 +656,9 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
 
         function rrwHeaderMenu()
         {
+            $translated_Menu = _e('Skip to content', 'twentythirteen');
+            $translated_Skip_to_content =  _e('Skip to content', 'twentythirteen');
+
             $msg = "";
             $msg .= "<!--  rrwHeaderMenu  -->
             <div id=\"navbar\" class=\"eriemenu  menucolor\" style='z-index:1;'>
@@ -665,10 +666,8 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                     <table role=\"presentation\">
                         <tr>
                             <td>
-                                <h3 class=\"menu-toggle\">
-                                    <?php _e('Menu', 'twentythirteen'); ?>
-                                </h3>
-                                <a class=\"screen-reader-text skip-link\" href=\"#content\" title=\"<?php esc_attr_e('Skip to content', 'twentythirteen'); ?>\">
+                                <h3 class=\"menu-toggle\">$translated_Menu</h3>
+                                <a class=\"screen-reader-text skip-link\" href=\"#content\" title=\"$translated_Skip_to_content>\">
                                     <?php _e('Skip to content', 'twentythirteen'); ?>
                                 </a>";
             $rrw_trail_menuText = wp_nav_menu(array(
@@ -681,7 +680,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                         </tr>
                     </table>
                 </nav>
-    </div>      <!-- id=navbar  -->
-                        <!-- =====================================  end #navbar -->";
+    </div>      <!--close div id=navbar  in rrwHeaderMenu -->
             return $msg;
         } //
