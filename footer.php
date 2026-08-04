@@ -260,33 +260,3 @@ function rrwTrail_footer_theyWorking(
     ';
     return;
 } // end rrwTrail_footer_theyWorking
-/*
-function rrwHeaderMenu()
-{
-    $msg = "";
-    $msg .= "<!--  rrwHeaderMenu  -->
-            <div id=\"navbar\" class=\"eriemenu  menucolor\" style='z-level:1;'>
-                <nav id=\"site-navigation\" class=\"navigation main-navigation menucolor\">
-                    <table role=\"presentation\">
-                        <tr>
-                            <td>
-                                <h3 class=\"menu-toggle\">Menu</h3>
-                                <a class=\"screen-reader-text skip-link\" href=\"#content\" title='Skip to content' 'Skip to content',
-                                </a>";
-    $rrw_trail_menuText = wp_nav_menu(array(
-        'theme_location' => 'primary',
-        'menu_class' => 'nav-menu menucolor',
-        'echo' => false
-    ));
-    $msg .= $rrw_trail_menuText;
-    $msg .= "
-                            </td>
-                        </tr>
-                    </table>
-                </nav>
-            </div>
-            <!-- id=navbar  -->
-            ";
-    return $msg;
-}
-*/

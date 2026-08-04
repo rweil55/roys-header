@@ -132,7 +132,7 @@ div.eriemenu {
             <style>
 
             wp-element-button {
-                background-color: "cfcfcf" !important;
+                background-color: "#cfcfcf" !important;
                 border: none;
                 color: black;
             }
@@ -676,20 +676,12 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                 "menu_class" => "nav-menu menucolor",
                 "echo" => false
             ));
-            print $rrw_trail_menuText . "
+            $msg .= $rrw_trail_menuText . "
                             </td>
                         </tr>
                     </table>
                 </nav>
     </div>      <!-- id=navbar  -->
-                        <!-- =====================================  end #navbar -->
-            </div>
-            </header>
-            </div>
-            <!-- end dive id='page' -->
-            <!-- #masthead -->
-            <!--  ===== last line -2 of header.php ============================================ main content -->
-            <div id='main' class='site-main'>
-            ";
+                        <!-- =====================================  end #navbar -->";
             return $msg;
-        }
+        } //
