@@ -29,6 +29,7 @@ return;
 function LookForDino()
 {
     global $wpdbExtra;
+
     $rename = array(
         "maps.htm" => "https://dinomitedays.org/map/",
         "pictures.htm" => "https://dinomitedays.org/thumbnails/",

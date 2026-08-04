@@ -471,7 +471,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     ";
     // --------------------------------------------------------- nave bar code
     switch ($switchName) {
-        case "eriepittsburgh": // --------------------------------------------
         case "nudges":
             $spaces80 = str_repeat("&nbsp;", 80);
             print '
@@ -501,7 +500,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                 "not-yet" => "70|<p class='creative-nudge-page-header'>Page not built. Please contact with the link to this page</p>",
                 "onecard" => "70|<p class='creative-nudge-page-header'> Display just one card</p>",
                 "order-placed" => "70|<p class='creative-nudge-page-header'>Order has been successfully placed.</p>",
-                "faq" => "70|<p class='creative-nudge-page-header'>Frequently Ask Questions</p>",
                 "faq" => "70|<p class='creative-nudge-page-header'>Frequently Ask Questions</p>",
                 "privacy-policy-2" => "144|<p class='creative-nudge-page-header'>Privacy is important to us, and we want you to understand what data we collect and how we use it.</p>",
                 "privacy-policy" => "90|<p class='creative-nudge-page-header'>Privacy is important to us, and we want you to understand what data we collect and how we use it.</p>",
@@ -652,6 +650,8 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     <div id="main" class="site-main">
         <?php
         error_reporting($OriginalErrorReporting); // restore original error reporting
+
+
         function rrwHeaderMenu()
         {
             $msg = "";
