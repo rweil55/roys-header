@@ -614,9 +614,9 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
     ?>
             </td>
             </tr>
-            </table>  // end table in eriepittsburgh header
+            </table> // end table in eriepittsburgh header
             </nav>
-            </div>   <!-- close div id=navbar in erie_pittsburgh header -->
+            </div> <!-- close div id=navbar in erie_pittsburgh header -->
     <?php
             break;
         case "dino":
@@ -680,6 +680,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                         </tr>
                     </table>
                 </nav>
-    </div>      <!--close div id=navbar  in rrwHeaderMenu -->
+    </div>      <!--close div id=navbar  in rrwHeaderMenu --> ";
             return $msg;
-        } //
+        } // end of rrwHeaderMenu
