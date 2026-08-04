@@ -39,7 +39,7 @@ $OriginalErrorReporting = error_reporting(E_ALL);
 <!--<![endif]-->
 
 <head>
-    <!-- I#1301 -- page created by header.php try #13---------------------------------------- -->
+    <!-- I#1301 -- page  header.php try #14---------------------------------------- -->
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
     <title>
@@ -192,7 +192,11 @@ div.eriemenu {
 </head>
 <body ";
     print body_class();
+
     print " >
+
+
+
     <div id='page' class='hfeed site'>
         <!--  ==================================================================================================== header -->
         <header id='masthead' style='text-align:left;'>
