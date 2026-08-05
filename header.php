@@ -201,8 +201,8 @@ div.eriemenu {
     <div id='page' class='hfeed site'>
         <!--  ==================================================================================================== header -->
         <header id='masthead' style='text-align:left;'>
-            <a class='screen-reader-text skip-link' href='#content' aria-label='$translated_Skip_to_content'
-            title='$translated_Skip_to_content' ></a>\n";
+            <a class='screen-reader-text skip-link' href='#content' aria-label='$translated_Skip_to_content 1' title='$translated_Skip_to_content' >
+            </a>\n";
     $image = get_header_image();
     $homeName = esc_attr(get_bloginfo('name', 'display'));
     if (array_key_exists("nohead", $_GET))
@@ -591,7 +591,7 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
             break;
         case "eriepittsburgh": // --------------------------------------------
             // eriepittsburgh has menu buried i the swish
-            $translated_Menu = _e('Skip to content', 'twentythirteen');
+            $translated_Menu = _e('Menu', 'twentythirteen');
             $translated_Skip_to_content =  _e('Skip to content', 'twentythirteen');
             print '
             <div id="navbar" class="eriemenu  menucolor" style="z-index:1;">
@@ -602,9 +602,9 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                                 <h3 class="menu-toggle"> ' .
                 $translated_Menu .
                 '</h3>
-                            <a class="screen-reader-text skip-link" href="#content" title="' .
+                            <a class="screen-reader-text skip-link" aria-label="$translated_Skip_to_content 2"   href="#content" title="' .
                 $translated_Skip_to_content  .
-                " ></a>";
+                "' ></a>";
             $rrw_trail_menuText = wp_nav_menu(array(
                 'theme_location' => 'primary',
                 'menu_class' => 'nav-menu menucolor',
@@ -668,7 +668,6 @@ background-image:url("/wp-content/themes/roys-header/images/riders-header-1-1700
                             <td>
                                 <h3 class=\"menu-toggle\">$translated_Menu</h3>
                                 <a class=\"screen-reader-text skip-link\" href=\"#content\" title=\"$translated_Skip_to_content>\">
-                                    <?php _e('Skip to content', 'twentythirteen'); ?>
                                 </a>";
             $rrw_trail_menuText = wp_nav_menu(array(
                 "theme_location" => "primary",
